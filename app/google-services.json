@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "286107878895",
+    "firebase_url": "https://projectakhir-280e2.firebaseio.com",
+    "project_id": "projectakhir-280e2",
+    "storage_bucket": "projectakhir-280e2.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:286107878895:android:861c3661b00d822c54221a",
+        "android_client_info": {
+          "package_name": "com.nandaadisaputra.projectakhir"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "286107878895-5bii7dhgu2i264bfod2faaa3jrnm0se4.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.nandaadisaputra.projectakhir",
+            "certificate_hash": "160952152c5b0d698de9ca21992c748a802b72b2"
+          }
+        },
+        {
+          "client_id": "286107878895-gid9o9k5i7bd4ul0up1mmvv1eu4rfier.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyACwJR6KR834yRatO1O8AUqPtwwtuQ5pY4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "286107878895-gid9o9k5i7bd4ul0up1mmvv1eu4rfier.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
