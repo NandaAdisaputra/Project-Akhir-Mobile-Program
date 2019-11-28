@@ -9,6 +9,7 @@
     android:background="@color/whiteCardColor"
     android:elevation="5dp"
     app:cardCornerRadius="@dimen/loginCardRadius"
+    tools:context=".LoginActivity"
     tools:targetApi="lollipop">
 
     <LinearLayout
@@ -16,10 +17,12 @@
         android:layout_gravity="center"
         android:padding="@dimen/loginViewsMargin">
 
-        <TextView
-            style="@style/headerTextPrimary"
-            android:layout_marginTop="@dimen/loginViewsMargin"
-            android:text="@string/login" />
+        <ImageView
+            android:layout_width="150dp"
+            android:layout_height="150dp"
+            android:src="@drawable/userimage"
+            android:contentDescription="@string/image"
+            android:layout_gravity="center"/>
 
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/textInputEmail"
@@ -27,7 +30,7 @@
             android:layout_marginTop="@dimen/loginViewsMargin">
 
             <EditText
-                android:id="@+id/etLogGmail"
+                android:id="@+id/edt_LoginGmail"
                 style="@style/modifiedEditText"
                 android:drawableStart="@drawable/ic_email"
                 android:hint="@string/email"
@@ -43,7 +46,7 @@
             android:layout_marginTop="@dimen/loginViewsMargin">
 
             <EditText
-                android:id="@+id/etLoginPassword"
+                android:id="@+id/edt_LoginPassword"
                 style="@style/modifiedEditText"
                 android:drawableStart="@drawable/ic_lock"
                 android:hint="@string/password"
@@ -67,28 +70,30 @@
             android:orientation="horizontal">
 
             <TextView
-                android:id="@+id/forget_password"
+                android:id="@+id/forgot_password"
                 style="@style/parent"
                 android:layout_marginTop="@dimen/loginViewsMargin"
-                android:onClick="viewRegisterClicked"
-                android:text="@string/forget_password"
+                android:onClick="onClick"
+                android:text="@string/forgot_password"
                 android:textAlignment="center"
-                android:textColor="@color/primaryTextColor"
+                android:textColor="#FC3C7D"
                 android:textStyle="bold" />
             <TextView
                 android:id="@+id/sign_in"
                 style="@style/parent"
                 android:layout_marginStart="16dp"
                 android:layout_marginTop="@dimen/loginViewsMargin"
-                android:onClick="viewRegisterClicked"
+                android:onClick="onClick"
                 android:text="@string/sign_up"
                 android:textAlignment="center"
-                android:textColor="@color/primaryTextColor"
+                android:textColor="#FC3C7D"
                 android:textStyle="bold" />
-
         </LinearLayout>
-
-
-
+        <com.google.android.gms.common.SignInButton
+            android:id="@+id/google_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:padding="8dp"/>
     </LinearLayout>
 </androidx.cardview.widget.CardView>

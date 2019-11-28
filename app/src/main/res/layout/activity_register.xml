@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     style="@style/loginCard"
@@ -15,18 +15,19 @@
         style="@style/linearParent"
         android:layout_gravity="center"
         android:padding="@dimen/loginViewsMargin">
-
-        <TextView
-            style="@style/headerTextPrimary"
-            android:layout_marginTop="@dimen/loginViewsMargin"
-            android:text="@string/register" />
+        <ImageView
+            android:layout_width="150dp"
+            android:layout_height="150dp"
+            android:src="@drawable/userimage"
+            android:contentDescription="@string/image"
+            android:layout_gravity="center"/>
 
         <com.google.android.material.textfield.TextInputLayout
             style="@style/parent"
             android:layout_marginTop="@dimen/signup_text_margin_top">
 
             <EditText
-                android:id="@+id/regName"
+                android:id="@+id/edt_namereg"
                 style="@style/modifiedEditText"
                 android:drawableStart="@drawable/ic_account"
                 android:hint="@string/name"
@@ -40,7 +41,7 @@
             android:layout_marginTop="@dimen/signup_text_margin_top">
 
             <EditText
-                android:id="@+id/regPhone"
+                android:id="@+id/edt_phonereg"
                 style="@style/modifiedEditText"
                 android:drawableStart="@drawable/ic_phone"
                 android:hint="@string/mobile_number"
@@ -54,7 +55,7 @@
             android:layout_marginTop="@dimen/signup_text_margin_top">
 
             <EditText
-                android:id="@+id/regGmail"
+                android:id="@+id/edt_gmailreg"
                 style="@style/modifiedEditText"
                 android:drawableStart="@drawable/ic_email"
                 android:hint="@string/email"
@@ -62,13 +63,66 @@
                 android:maxLines="1"
                 tools:ignore="Autofill" />
         </com.google.android.material.textfield.TextInputLayout>
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp">
+
+            <TextView
+                android:id="@+id/tv_choosegenderreg"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:layout_centerVertical="true"
+                android:text="@string/pilih"
+                android:textColor="#2196F3" />
+
+            <EditText
+                android:id="@+id/edt_genderreg"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="10dp"
+                android:layout_toStartOf="@id/tv_choosegenderreg"
+                android:enabled="false"
+                android:textSize="14sp"
+                android:drawableStart="@drawable/ic_people"
+                android:hint="@string/jenis_kelamin"
+                tools:ignore="Autofill,TextFields" />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp">
+
+            <TextView
+                android:id="@+id/tv_choosepend"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:layout_centerVertical="true"
+                android:text="@string/pilih"
+                android:textColor="#2196F3" />
+
+            <EditText
+                android:id="@+id/edt_pendreg"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="10dp"
+                android:layout_toStartOf="@id/tv_choosepend"
+                android:enabled="false"
+                android:textSize="14sp"
+                android:drawableStart="@drawable/ic_school"
+                android:hint="@string/pendidikan"
+                tools:ignore="Autofill,TextFields" />
+        </RelativeLayout>
 
         <com.google.android.material.textfield.TextInputLayout
             style="@style/parent"
             android:layout_marginTop="@dimen/signup_text_margin_top">
 
             <EditText
-                android:id="@+id/regPassword"
+                android:id="@+id/edt_passwordreg"
                 style="@style/modifiedEditText"
                 android:drawableStart="@drawable/ic_lock"
                 android:hint="@string/password"
@@ -78,19 +132,37 @@
         </com.google.android.material.textfield.TextInputLayout>
 
         <Button
-            android:id="@+id/btnregister"
+            android:id="@+id/btn_register"
             style="@style/loginButton"
             android:layout_gravity="center"
             android:text="@string/register" />
-
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
         <TextView
-            android:id="@+id/sign_up"
-            style="@style/parent"
+            android:id="@+id/tv_sign_upreg"
+            android:layout_height="wrap_content"
+            android:layout_width="match_parent"
             android:layout_marginTop="@dimen/loginViewsMargin"
             android:text="@string/login"
+            android:onClick="onClick"
+            android:layout_weight="2"
             android:textAlignment="center"
-            android:textColor="@color/primaryTextColor"
+            android:textColor="#FC3C7D"
             android:textStyle="bold" />
+        <TextView
+            android:id="@+id/tv_guestreg"
+            android:layout_height="wrap_content"
+            android:layout_width="match_parent"
+            android:layout_weight="2"
+            android:layout_marginTop="@dimen/loginViewsMargin"
+            android:text="@string/login_as_guest"
+            android:onClick="onClick"
+            android:textAlignment="center"
+            android:textColor="#FC3C7D"
+            android:textStyle="bold" />
+    </LinearLayout>
 
     </LinearLayout>
-</androidx.cardview.widget.CardView>
+</ScrollView>

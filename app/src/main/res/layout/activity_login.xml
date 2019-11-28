@@ -2,6 +2,7 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     style="@style/loginParent"
+    android:background="#F1D1DC"
     android:orientation="vertical"
     tools:context=".LoginActivity">
 
@@ -43,7 +44,7 @@
                     style="@style/headerText"
                     android:layout_gravity="center"
                     android:layout_marginTop="40dp"
-                    android:text="@string/welcome" />
+                    android:text="@string/welcome_to_marketplace" />
 
                 <include layout="@layout/layout_login" />
 
