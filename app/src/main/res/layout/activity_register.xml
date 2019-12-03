@@ -27,7 +27,7 @@
             android:layout_marginTop="@dimen/signup_text_margin_top">
 
             <EditText
-                android:id="@+id/edt_namereg"
+                android:id="@+id/edt_name"
                 style="@style/modifiedEditText"
                 android:drawableStart="@drawable/ic_account"
                 android:hint="@string/name"
@@ -41,7 +41,7 @@
             android:layout_marginTop="@dimen/signup_text_margin_top">
 
             <EditText
-                android:id="@+id/edt_phonereg"
+                android:id="@+id/edt_phone"
                 style="@style/modifiedEditText"
                 android:drawableStart="@drawable/ic_phone"
                 android:hint="@string/mobile_number"
@@ -55,7 +55,7 @@
             android:layout_marginTop="@dimen/signup_text_margin_top">
 
             <EditText
-                android:id="@+id/edt_gmailreg"
+                android:id="@+id/edt_email"
                 style="@style/modifiedEditText"
                 android:drawableStart="@drawable/ic_email"
                 android:hint="@string/email"
@@ -69,7 +69,7 @@
             android:layout_marginTop="10dp">
 
             <TextView
-                android:id="@+id/tv_choosegenderreg"
+                android:id="@+id/tv_chooseGender"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_alignParentEnd="true"
@@ -78,11 +78,11 @@
                 android:textColor="#2196F3" />
 
             <EditText
-                android:id="@+id/edt_genderreg"
+                android:id="@+id/edt_gender"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginEnd="10dp"
-                android:layout_toStartOf="@id/tv_choosegenderreg"
+                android:layout_toStartOf="@id/tv_chooseGender"
                 android:enabled="false"
                 android:textSize="14sp"
                 android:drawableStart="@drawable/ic_people"
@@ -96,7 +96,7 @@
             android:layout_marginTop="10dp">
 
             <TextView
-                android:id="@+id/tv_choosepend"
+                android:id="@+id/tv_selectEducation"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_alignParentEnd="true"
@@ -105,11 +105,11 @@
                 android:textColor="#2196F3" />
 
             <EditText
-                android:id="@+id/edt_pendreg"
+                android:id="@+id/edt_education"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginEnd="10dp"
-                android:layout_toStartOf="@id/tv_choosepend"
+                android:layout_toStartOf="@+id/tv_selectEducation"
                 android:enabled="false"
                 android:textSize="14sp"
                 android:drawableStart="@drawable/ic_school"
@@ -122,7 +122,7 @@
             android:layout_marginTop="@dimen/signup_text_margin_top">
 
             <EditText
-                android:id="@+id/edt_passwordreg"
+                android:id="@+id/edt_password"
                 style="@style/modifiedEditText"
                 android:drawableStart="@drawable/ic_lock"
                 android:hint="@string/password"
@@ -142,7 +142,7 @@
         android:layout_height="wrap_content"
         android:orientation="horizontal">
         <TextView
-            android:id="@+id/tv_loginreg"
+            android:id="@+id/tv_loginRegister"
             android:layout_height="wrap_content"
             android:layout_width="match_parent"
             android:layout_marginTop="@dimen/loginViewsMargin"
@@ -153,7 +153,7 @@
             android:textColor="#FC3C7D"
             android:textStyle="bold" />
         <TextView
-            android:id="@+id/tv_guestreg"
+            android:id="@+id/tv_guestRegister"
             android:layout_height="wrap_content"
             android:layout_width="match_parent"
             android:layout_weight="2"

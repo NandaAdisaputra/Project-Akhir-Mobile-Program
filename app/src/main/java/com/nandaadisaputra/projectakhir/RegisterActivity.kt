@@ -8,6 +8,7 @@ import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import kotlinx.android.synthetic.main.activity_register.*
 import org.jetbrains.anko.sdk27.coroutines.onClick
+import org.jetbrains.anko.selector
 import org.jetbrains.anko.startActivity
 import org.jetbrains.anko.toast
 
@@ -22,20 +23,26 @@ class RegisterActivity : AppCompatActivity(), View.OnClickListener {
 
         openHelper = DatabaseHelper(this)
 
+        tv_chooseGender.onClick {
+            val jurusan = listOf("Male", "Female")
+            selector("Select Gender", jurusan) { _, i ->
+                edt_gender.setText(jurusan[i])
+            }
+        }
         btn_register.onClick {
             if (validation()) {
                 return@onClick
             }
             db = openHelper?.writableDatabase
-            val name = edt_namereg.text.toString().trim()
-            val phone = edt_phonereg.text.toString().trim()
-            val email = edt_gmailreg.text.toString().trim()
-            val password = edt_passwordreg.text.toString().trim()
+            val name = edt_name.text.toString().trim()
+            val phone = edt_phone.text.toString().trim()
+            val email = edt_email.text.toString().trim()
+            val password = edt_password.text.toString().trim()
             if (name.isEmpty() || password.isEmpty() || email.isEmpty() || phone.isEmpty()) {
-                toast("Silakan isi semua detail")
+                toast("Please fill in all the details")
             } else {
                 dataInsert(name, phone, email, password)
-                toast("Registrasi berhasil")
+                toast("Registration successful")
             }
 
         }
@@ -53,28 +60,28 @@ class RegisterActivity : AppCompatActivity(), View.OnClickListener {
 
     private fun validation(): Boolean {
         when {
-            //Cek nama kosong atau tidakS
-            edt_namereg.text.toString().isBlank() -> {
-                edt_namereg.requestFocus()
-                edt_namereg.error = "Nama Anda Tidak boleh kosong"
+            //Check the name is empty or not
+            edt_name.text.toString().isBlank() -> {
+                edt_name.requestFocus()
+                edt_name.error = "Your name must not be blank"
                 return false
             }
-            //Cek phone kosong atau tidak
-            edt_phonereg.text.toString().isBlank() -> {
-                edt_phonereg.requestFocus()
-                edt_phonereg.error = "Nomor Hp Anda Tidak boleh kosong"
+            //Check phone is empty or not
+            edt_phone.text.toString().isBlank() -> {
+                edt_phone.requestFocus()
+                edt_phone.error = "Your Mobile Number must not be blank"
                 return false
             }
-            //Cek gmail kosong atau tidak
-            edt_gmailreg.text.toString().isBlank() -> {
-                edt_gmailreg.requestFocus()
-                edt_gmailreg.error = "Gmail Anda Tidak boleh kosong"
+            //Check email is empty or not
+            edt_email.text.toString().isBlank() -> {
+                edt_email.requestFocus()
+                edt_email.error = "Your Email may not be empty"
                 return false
             }
-            //Cek gmail kosong atau tidak
-            edt_gmailreg.text.toString().isBlank() -> {
-                edt_gmailreg.requestFocus()
-                edt_gmailreg.error = "Gmail Anda Tidak boleh kosong"
+            //Check the password is empty or not
+            edt_password.text.toString().isBlank() -> {
+                edt_password.requestFocus()
+                edt_password.error = "Your password must not be blank"
                 return false
             }
             else -> return true
@@ -83,8 +90,8 @@ class RegisterActivity : AppCompatActivity(), View.OnClickListener {
 
     override fun onClick(v: View?) {
             when (v) {
-                tv_loginreg -> startActivity<LoginActivity>()
-                tv_guestreg -> startActivity<MainActivity>()
+                tv_loginRegister -> startActivity<LoginActivity>()
+                tv_guestRegister -> startActivity<MainActivity>()
             }
     }
 }

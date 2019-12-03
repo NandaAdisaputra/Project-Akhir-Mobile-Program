@@ -40,8 +40,8 @@ class LoginActivity : AppCompatActivity(), View.OnClickListener {
         openHelper = DatabaseHelper(this)
         db = openHelper?.readableDatabase
         btn_login.onClick {
-            val email =  edt_LoginGmail.text.toString().trim()
-            val password = edt_LoginPassword.text.toString().trim()
+            val email =  edt_login.text.toString().trim()
+            val password = edt_loginPassword.text.toString().trim()
             if (validation()) {
                 return@onClick
             } else {
@@ -70,16 +70,16 @@ class LoginActivity : AppCompatActivity(), View.OnClickListener {
 
     private fun validation(): Boolean {
         when {
-            //Cek gmail kosong atau tidak
-            edt_LoginGmail.text.toString().isBlank() -> {
-                edt_LoginGmail.requestFocus()
-                edt_LoginGmail.error = "Gmail Tidak boleh kosong"
+            //Check email is empty or not
+            edt_login.text.toString().isBlank() -> {
+                edt_login.requestFocus()
+                edt_login.error = "Email cannot be empty"
                 return false
             }
-            //Cek password kosong atau tidak
-            edt_LoginPassword.text.toString().isBlank() -> {
-                edt_LoginPassword.requestFocus()
-                edt_LoginPassword.error = "Password Tidak boleh kosong"
+            //Check the password is empty or not
+            edt_loginPassword.text.toString().isBlank() -> {
+                edt_loginPassword.requestFocus()
+                edt_loginPassword.error = "The password must not be blank"
                 return false
             }
             else -> return true
