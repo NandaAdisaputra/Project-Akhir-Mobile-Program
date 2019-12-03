@@ -38,6 +38,7 @@ class MainActivity : AppCompatActivity() {
                 R.id.menu_keluar -> {
                     moveTaskToBack(true)
                     exitProcess(-1)
+
                 }
             }
             supportFragmentManager.beginTransaction().replace(R.id.fragment_container, pageContent!!).commit()
@@ -80,4 +81,5 @@ class MainActivity : AppCompatActivity() {
             addFlags(Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK)
         }
     }
+
 }

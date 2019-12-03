@@ -134,6 +134,7 @@
         <Button
             android:id="@+id/btn_register"
             style="@style/loginButton"
+            android:onClick="onClick"
             android:layout_gravity="center"
             android:text="@string/register" />
     <LinearLayout
@@ -141,7 +142,7 @@
         android:layout_height="wrap_content"
         android:orientation="horizontal">
         <TextView
-            android:id="@+id/tv_sign_upreg"
+            android:id="@+id/tv_loginreg"
             android:layout_height="wrap_content"
             android:layout_width="match_parent"
             android:layout_marginTop="@dimen/loginViewsMargin"

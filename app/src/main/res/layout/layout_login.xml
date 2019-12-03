@@ -57,8 +57,9 @@
         </com.google.android.material.textfield.TextInputLayout>
 
         <Button
-            android:id="@+id/btnlogin"
+            android:id="@+id/btn_login"
             style="@style/loginButton"
+            android:onClick="onClick"
             android:layout_gravity="center_horizontal"
             android:layout_marginTop="@dimen/loginViewsMargin"
             android:text="@string/login" />
@@ -79,7 +80,7 @@
                 android:textColor="#FC3C7D"
                 android:textStyle="bold" />
             <TextView
-                android:id="@+id/sign_in"
+                android:id="@+id/tv_register"
                 style="@style/parent"
                 android:layout_marginStart="16dp"
                 android:layout_marginTop="@dimen/loginViewsMargin"
