@@ -40,10 +40,12 @@ class LoginActivity : AppCompatActivity(), View.OnClickListener {
         openHelper = DatabaseHelper(this)
         db = openHelper?.readableDatabase
         btn_login.onClick {
-            val email =  edt_login.text.toString().trim()
+            val email = edt_login.text.toString().trim()
             val password = edt_loginPassword.text.toString().trim()
-            if (validation()) {
-                return@onClick
+            if (email.isEmpty() || password.isEmpty()) {
+                if (validation()) {
+                    return@onClick
+                }
             } else {
                 cursor = db?.rawQuery("SELECT *FROM " + DatabaseHelper.TABLE_NAME + " WHERE " + DatabaseHelper.COL_4 + "=? AND " + DatabaseHelper.COL_5 + "=?", arrayOf(email, password))
                 if (cursor != null) {
@@ -53,11 +55,10 @@ class LoginActivity : AppCompatActivity(), View.OnClickListener {
                     } else {
                         toast("Login Error")
                     }
-
                 }
             }
-        }
 
+        }
     }
 
 

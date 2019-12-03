@@ -30,21 +30,19 @@ class RegisterActivity : AppCompatActivity(), View.OnClickListener {
             }
         }
         btn_register.onClick {
-            if (validation()) {
-                return@onClick
-            }
             db = openHelper?.writableDatabase
             val name = edt_name.text.toString().trim()
             val phone = edt_phone.text.toString().trim()
             val email = edt_email.text.toString().trim()
             val password = edt_password.text.toString().trim()
             if (name.isEmpty() || password.isEmpty() || email.isEmpty() || phone.isEmpty()) {
-                toast("Please fill in all the details")
             } else {
                 dataInsert(name, phone, email, password)
                 toast("Registration successful")
             }
-
+            if (validation()) {
+                return@onClick
+            }
         }
     }
 
@@ -89,9 +87,9 @@ class RegisterActivity : AppCompatActivity(), View.OnClickListener {
     }
 
     override fun onClick(v: View?) {
-            when (v) {
-                tv_loginRegister -> startActivity<LoginActivity>()
-                tv_guestRegister -> startActivity<MainActivity>()
-            }
+        when (v) {
+            tv_loginRegister -> startActivity<LoginActivity>()
+            tv_guestRegister -> startActivity<MainActivity>()
+        }
     }
 }
