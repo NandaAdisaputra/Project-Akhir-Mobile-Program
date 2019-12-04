@@ -75,18 +75,32 @@ class LoginActivity : AppCompatActivity(), View.OnClickListener {
                         sharedPrefManager?.saveSPBoolean(SharedPrefManager.SP_SUDAH_LOGIN, true)
                         toast("Login Success")
                     } else {
-                        toast("Username/Password Salah")
+                        vs()
                     }
+                } else {
+                    toast("Login Gagal")
                 }
             }
-
         }
+
     }
 
     override fun onClick(v: View?) {
         when (v) {
             tv_register -> startActivity<RegisterActivity>()
             forgot_password -> startActivity<ResetPasswordActivity>()
+        }
+
+    }
+
+    private fun vs(): Boolean {
+        when {
+            edt_loginPassword.length() < 6 -> {
+                edt_loginPassword.requestFocus()
+                edt_loginPassword.error = "Password failed"
+                return false
+            }
+            else -> return true
         }
     }
 
