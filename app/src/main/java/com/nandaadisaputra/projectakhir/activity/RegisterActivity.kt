@@ -1,4 +1,4 @@
-package com.nandaadisaputra.projectakhir
+package com.nandaadisaputra.projectakhir.activity
 
 import android.content.ContentValues
 import android.database.sqlite.SQLiteDatabase
@@ -6,6 +6,8 @@ import android.database.sqlite.SQLiteOpenHelper
 import android.os.Bundle
 import android.view.View
 import androidx.appcompat.app.AppCompatActivity
+import com.nandaadisaputra.projectakhir.database.DatabaseHelper
+import com.nandaadisaputra.projectakhir.R
 import kotlinx.android.synthetic.main.activity_register.*
 import org.jetbrains.anko.sdk27.coroutines.onClick
 import org.jetbrains.anko.selector
@@ -24,9 +26,15 @@ class RegisterActivity : AppCompatActivity(), View.OnClickListener {
         openHelper = DatabaseHelper(this)
 
         tv_chooseGender.onClick {
-            val jurusan = listOf("Male", "Female")
-            selector("Select Gender", jurusan) { _, i ->
-                edt_gender.setText(jurusan[i])
+            val gender = listOf("Male", "Female")
+            selector("Select Gender", gender) { _, i ->
+                edt_gender.setText(gender[i])
+            }
+        }
+        tv_selectEducation.onClick {
+            val education = listOf("SD Sederajat", "SMP Sederajat","SMA Sederajat","S1","S2","S2","S3")
+            selector("Select Education", education) { _, i ->
+                edt_education.setText(education[i])
             }
         }
         btn_register.onClick {
@@ -34,10 +42,12 @@ class RegisterActivity : AppCompatActivity(), View.OnClickListener {
             val name = edt_name.text.toString().trim()
             val phone = edt_phone.text.toString().trim()
             val email = edt_email.text.toString().trim()
+            val gender= edt_gender.text.toString().trim()
+            val education = edt_education.text.toString().trim()
             val password = edt_password.text.toString().trim()
-            if (name.isEmpty() || password.isEmpty() || email.isEmpty() || phone.isEmpty()) {
+            if (name.isEmpty() || phone.isEmpty() || email.isEmpty()|| gender.isEmpty() || education.isEmpty()|| password.isEmpty()) {
             } else {
-                dataInsert(name, phone, email, password)
+                dataInsert(name, phone, email, gender,education, password)
                 toast("Registration successful")
             }
             if (validation()) {
@@ -46,12 +56,14 @@ class RegisterActivity : AppCompatActivity(), View.OnClickListener {
         }
     }
 
-    private fun dataInsert(name: String?, phone: String?, email: String?, password: String?) {
+    private fun dataInsert(name: String?, phone: String?, email: String?,gender: String?, education: String?,password: String?) {
         val contentValues = ContentValues()
         contentValues.put(DatabaseHelper.COL_2, name)
         contentValues.put(DatabaseHelper.COL_3, phone)
         contentValues.put(DatabaseHelper.COL_4, email)
-        contentValues.put(DatabaseHelper.COL_5, password)
+        contentValues.put(DatabaseHelper.COL_5, gender)
+        contentValues.put(DatabaseHelper.COL_6,education)
+        contentValues.put(DatabaseHelper.COL_7, password)
         db?.insert(DatabaseHelper.TABLE_NAME, null, contentValues)
 
     }
@@ -74,6 +86,18 @@ class RegisterActivity : AppCompatActivity(), View.OnClickListener {
             edt_email.text.toString().isBlank() -> {
                 edt_email.requestFocus()
                 edt_email.error = "Your Email may not be empty"
+                return false
+            }
+            //Check gender is empty or not
+            edt_gender.text.toString().isBlank() -> {
+                edt_gender.requestFocus()
+                edt_gender.error = "Your Gender may not be empty"
+                return false
+            }
+            //Check education is empty or not
+            edt_education.text.toString().isBlank() -> {
+                edt_education.requestFocus()
+                edt_education.error = "Your Education may not be empty"
                 return false
             }
             //Check the password is empty or not

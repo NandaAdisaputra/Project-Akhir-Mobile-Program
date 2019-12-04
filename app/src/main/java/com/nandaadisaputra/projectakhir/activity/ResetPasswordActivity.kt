@@ -1,4 +1,4 @@
-package com.nandaadisaputra.projectakhir
+package com.nandaadisaputra.projectakhir.activity
 
 import android.os.Bundle
 import android.text.TextUtils
@@ -7,6 +7,7 @@ import android.widget.EditText
 import androidx.appcompat.app.AppCompatActivity
 import com.google.android.gms.tasks.Task
 import com.google.firebase.auth.FirebaseAuth
+import com.nandaadisaputra.projectakhir.R
 import kotlinx.android.synthetic.main.activity_reset_password.*
 import org.jetbrains.anko.sdk27.coroutines.onClick
 import org.jetbrains.anko.startActivity

@@ -1,13 +1,16 @@
-package com.nandaadisaputra.projectakhir;
+package com.nandaadisaputra.projectakhir.activity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.Button;
 import android.widget.ImageView;
 
 import androidx.appcompat.app.AppCompatActivity;
+
+import com.nandaadisaputra.projectakhir.R;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -32,9 +35,12 @@ public class SplashScreenActivity extends AppCompatActivity {
         getStarted.setAnimation(frombottom);
         resume.setAnimation(fromtop);
 
-        getStarted.setOnClickListener(view -> {
-            Intent intent = new Intent(SplashScreenActivity.this, RegisterActivity.class);
-            startActivity(intent);
+        getStarted.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(SplashScreenActivity.this, RegisterActivity.class);
+                SplashScreenActivity.this.startActivity(intent);
+            }
         });
     }
 }

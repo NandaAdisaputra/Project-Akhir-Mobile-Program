@@ -1,11 +1,14 @@
-package com.nandaadisaputra.projectakhir
+package com.nandaadisaputra.projectakhir.activity
 
 import android.content.Intent
 import android.database.Cursor
 import android.database.sqlite.SQLiteDatabase
 import android.database.sqlite.SQLiteOpenHelper
+import android.graphics.drawable.AnimationDrawable
 import android.os.Bundle
 import android.view.View
+import android.widget.Button
+import android.widget.LinearLayout
 import androidx.appcompat.app.AppCompatActivity
 import com.google.android.gms.auth.api.signin.GoogleSignIn
 import com.google.android.gms.auth.api.signin.GoogleSignInAccount
@@ -15,6 +18,8 @@ import com.google.android.gms.common.api.ApiException
 import com.google.android.gms.tasks.Task
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.GoogleAuthProvider
+import com.nandaadisaputra.projectakhir.R
+import com.nandaadisaputra.projectakhir.database.DatabaseHelper
 import kotlinx.android.synthetic.main.layout_login.*
 import org.jetbrains.anko.sdk27.coroutines.onClick
 import org.jetbrains.anko.startActivity
@@ -31,6 +36,14 @@ class LoginActivity : AppCompatActivity(), View.OnClickListener {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_login)
+
+        val img: LinearLayout = findViewById<View>(R.id.anim) as LinearLayout
+        img.setBackgroundResource(R.drawable.bg_gradient0)
+        val frameAnimation = img.background as AnimationDrawable
+        frameAnimation.setEnterFadeDuration(2000)
+        frameAnimation.setExitFadeDuration(4000)
+        frameAnimation.start()
+
         tv_register.setOnClickListener(this)
         forgot_password.setOnClickListener(this)
         firebaseAuth = FirebaseAuth.getInstance()
@@ -47,20 +60,19 @@ class LoginActivity : AppCompatActivity(), View.OnClickListener {
                     return@onClick
                 }
             } else {
-                cursor = db?.rawQuery("SELECT *FROM " + DatabaseHelper.TABLE_NAME + " WHERE " + DatabaseHelper.COL_4 + "=? AND " + DatabaseHelper.COL_5 + "=?", arrayOf(email, password))
+                cursor = db?.rawQuery("SELECT *FROM " + DatabaseHelper.TABLE_NAME + " WHERE " + DatabaseHelper.COL_4 + "=? AND " + DatabaseHelper.COL_7 + "=?", arrayOf(email, password))
                 if (cursor != null) {
                     if (cursor!!.count > 0) {
                         startActivity<MainActivity>()
                         toast("Login Success")
                     } else {
-                        toast("Login Error")
+                        toast("Username/Password Salah")
                     }
                 }
             }
 
         }
     }
-
 
     override fun onClick(v: View?) {
         when (v) {

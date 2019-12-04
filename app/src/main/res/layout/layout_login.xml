@@ -9,11 +9,12 @@
     android:background="@color/whiteCardColor"
     android:elevation="5dp"
     app:cardCornerRadius="@dimen/loginCardRadius"
-    tools:context=".LoginActivity"
+    tools:context=".activity.LoginActivity"
     tools:targetApi="lollipop">
 
     <LinearLayout
         style="@style/linearParent"
+        android:id="@+id/anim"
         android:layout_gravity="center"
         android:padding="@dimen/loginViewsMargin">
 
