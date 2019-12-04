@@ -7,7 +7,6 @@ import android.database.sqlite.SQLiteOpenHelper
 import android.graphics.drawable.AnimationDrawable
 import android.os.Bundle
 import android.view.View
-import android.widget.Button
 import android.widget.LinearLayout
 import androidx.appcompat.app.AppCompatActivity
 import com.google.android.gms.auth.api.signin.GoogleSignIn
@@ -20,6 +19,7 @@ import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.GoogleAuthProvider
 import com.nandaadisaputra.projectakhir.R
 import com.nandaadisaputra.projectakhir.database.DatabaseHelper
+import com.nandaadisaputra.projectakhir.network.SharedPrefManager
 import kotlinx.android.synthetic.main.layout_login.*
 import org.jetbrains.anko.sdk27.coroutines.onClick
 import org.jetbrains.anko.startActivity
@@ -33,10 +33,16 @@ class LoginActivity : AppCompatActivity(), View.OnClickListener {
     private var db: SQLiteDatabase? = null
     private var openHelper: SQLiteOpenHelper? = null
     private var cursor: Cursor? = null
+    var sharedPrefManager: SharedPrefManager? = null
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_login)
-
+        sharedPrefManager = SharedPrefManager(this)
+        if (sharedPrefManager?.sPSudahLogin!!) {
+            startActivity(Intent(this@LoginActivity, MainActivity::class.java)
+                    .addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP or Intent.FLAG_ACTIVITY_NEW_TASK))
+            super.onBackPressed()
+        }
         val img: LinearLayout = findViewById<View>(R.id.anim) as LinearLayout
         img.setBackgroundResource(R.drawable.bg_gradient0)
         val frameAnimation = img.background as AnimationDrawable
@@ -55,6 +61,8 @@ class LoginActivity : AppCompatActivity(), View.OnClickListener {
         btn_login.onClick {
             val email = edt_login.text.toString().trim()
             val password = edt_loginPassword.text.toString().trim()
+            sharedPrefManager?.saveSPString(SharedPrefManager.COL_2, email)
+            sharedPrefManager?.saveSPString(SharedPrefManager.COL_7, password)
             if (email.isEmpty() || password.isEmpty()) {
                 if (validation()) {
                     return@onClick
@@ -64,6 +72,7 @@ class LoginActivity : AppCompatActivity(), View.OnClickListener {
                 if (cursor != null) {
                     if (cursor!!.count > 0) {
                         startActivity<MainActivity>()
+                        sharedPrefManager?.saveSPBoolean(SharedPrefManager.SP_SUDAH_LOGIN, true)
                         toast("Login Success")
                     } else {
                         toast("Username/Password Salah")

@@ -14,16 +14,18 @@ import androidx.fragment.app.Fragment
 import com.google.android.material.navigation.NavigationView
 import com.nandaadisaputra.projectakhir.R
 import com.nandaadisaputra.projectakhir.fragment.AboutFragment
-import kotlin.system.exitProcess
+import com.nandaadisaputra.projectakhir.network.SharedPrefManager
 
 class MainActivity : AppCompatActivity() {
     private var pageContent: Fragment? = AboutFragment()
     private var title: String? = "Aplikasi Mobile GIS"
     private val KEY_FRAGMENT: String? = null
     private val KEY_TITLE: String? = null
+    var sharedPrefManager: SharedPrefManager? = null
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+        sharedPrefManager = SharedPrefManager(this)
         val toolbar = findViewById<Toolbar>(R.id.main_toolbar)
         val drawerLayout = findViewById<DrawerLayout>(R.id.main_drawer)
         val drawerToggle = ActionBarDrawerToggle(this, drawerLayout, toolbar, R.string.app_name, R.string.app_name)
@@ -37,9 +39,10 @@ class MainActivity : AppCompatActivity() {
                     title = "Tentang SiPAI"
                 }
                 R.id.menu_keluar -> {
-                    moveTaskToBack(true)
-                    exitProcess(-1)
-
+                    sharedPrefManager?.saveSPBoolean(SharedPrefManager.SP_SUDAH_LOGIN, false)
+                    startActivity(Intent(this@MainActivity, LoginActivity::class.java)
+                            .addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP or Intent.FLAG_ACTIVITY_NEW_TASK))
+                    finish()
                 }
             }
             supportFragmentManager.beginTransaction().replace(R.id.fragment_container, pageContent!!).commit()

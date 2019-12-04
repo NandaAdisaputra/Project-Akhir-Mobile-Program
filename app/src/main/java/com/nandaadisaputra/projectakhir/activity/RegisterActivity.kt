@@ -49,6 +49,7 @@ class RegisterActivity : AppCompatActivity(), View.OnClickListener {
             } else {
                 dataInsert(name, phone, email, gender,education, password)
                 toast("Registration successful")
+                startActivity<LoginActivity>()
             }
             if (validation()) {
                 return@onClick
