@@ -15,6 +15,8 @@ import com.google.android.material.navigation.NavigationView
 import com.nandaadisaputra.projectakhir.R
 import com.nandaadisaputra.projectakhir.fragment.AboutFragment
 import com.nandaadisaputra.projectakhir.network.SharedPrefManager
+import org.jetbrains.anko.*
+import kotlin.system.exitProcess
 
 class MainActivity : AppCompatActivity() {
     private var pageContent: Fragment? = AboutFragment()
@@ -36,13 +38,26 @@ class MainActivity : AppCompatActivity() {
             when (menuItem.itemId) {
                 R.id.menu_tentang -> {
                     pageContent = AboutFragment()
-                    title = "Tentang SiPAI"
+                    title = "Marketplace"
                 }
                 R.id.menu_keluar -> {
-                    sharedPrefManager?.saveSPBoolean(SharedPrefManager.SP_SUDAH_LOGIN, false)
-                    startActivity(Intent(this@MainActivity, LoginActivity::class.java)
-                            .addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP or Intent.FLAG_ACTIVITY_NEW_TASK))
-                    finish()
+                    alert ("Apakah anda ingin logout ?"){
+                        noButton {
+                            toast("Anda tidak jadi Keluar")
+                            startActivity(intentFor<MainActivity>())
+                            finish()
+                        }
+                        yesButton {
+                            if(sharedPrefManager?.sPSudahLogin!!) {
+                                sharedPrefManager?.saveSPBoolean(SharedPrefManager.SP_SUDAH_LOGIN, false)
+                                startActivity(Intent(this@MainActivity, LoginActivity::class.java)
+                                        .addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP or Intent.FLAG_ACTIVITY_NEW_TASK))
+                                super.onBackPressed()
+                            }else {
+                                toast("Maaf Aplikasi Tugas Akhir Mobile Program belum sempurna")
+                            }
+                        }
+                    }.show()
                 }
             }
             supportFragmentManager.beginTransaction().replace(R.id.fragment_container, pageContent!!).commit()

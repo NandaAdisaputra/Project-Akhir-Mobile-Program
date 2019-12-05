@@ -21,9 +21,8 @@ import com.nandaadisaputra.projectakhir.R
 import com.nandaadisaputra.projectakhir.database.DatabaseHelper
 import com.nandaadisaputra.projectakhir.network.SharedPrefManager
 import kotlinx.android.synthetic.main.layout_login.*
+import org.jetbrains.anko.*
 import org.jetbrains.anko.sdk27.coroutines.onClick
-import org.jetbrains.anko.startActivity
-import org.jetbrains.anko.toast
 
 class LoginActivity : AppCompatActivity(), View.OnClickListener {
     private val rcSignIn: Int = 1
@@ -88,7 +87,16 @@ class LoginActivity : AppCompatActivity(), View.OnClickListener {
     override fun onClick(v: View?) {
         when (v) {
             tv_register -> startActivity<RegisterActivity>()
-            forgot_password -> startActivity<ResetPasswordActivity>()
+            forgot_password ->
+                alert ("Do you want to reset your password?"){
+                    noButton {
+                        toast("You did not reset the password")
+                        startActivity(intentFor<LoginActivity>())
+                    }
+                    yesButton {
+                        startActivity<ResetPasswordActivity>()
+                    }
+                }.show()
         }
 
     }
@@ -97,7 +105,7 @@ class LoginActivity : AppCompatActivity(), View.OnClickListener {
         when {
             edt_loginPassword.length() < 6 -> {
                 edt_loginPassword.requestFocus()
-                edt_loginPassword.error = "Password failed"
+                edt_loginPassword.error = "Passwords may not be less than 6"
                 return false
             }
             else -> return true

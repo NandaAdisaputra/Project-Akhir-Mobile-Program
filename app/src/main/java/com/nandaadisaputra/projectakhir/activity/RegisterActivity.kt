@@ -9,6 +9,7 @@ import androidx.appcompat.app.AppCompatActivity
 import com.nandaadisaputra.projectakhir.database.DatabaseHelper
 import com.nandaadisaputra.projectakhir.R
 import kotlinx.android.synthetic.main.activity_register.*
+import kotlinx.android.synthetic.main.layout_login.*
 import org.jetbrains.anko.sdk27.coroutines.onClick
 import org.jetbrains.anko.selector
 import org.jetbrains.anko.startActivity
@@ -56,7 +57,6 @@ class RegisterActivity : AppCompatActivity(), View.OnClickListener {
             }
         }
     }
-
     private fun dataInsert(name: String?, phone: String?, email: String?,gender: String?, education: String?,password: String?) {
         val contentValues = ContentValues()
         contentValues.put(DatabaseHelper.COL_2, name)

@@ -5,8 +5,12 @@ import android.content.SharedPreferences
 
 
 class SharedPrefManager(context: Context) {
+
     var sp: SharedPreferences
     var spEditor: SharedPreferences.Editor
+
+    // Required empty public constructor
+
     fun saveSPString(keySP: String?, value: String?) {
         spEditor.putString(keySP, value)
         spEditor.commit()
