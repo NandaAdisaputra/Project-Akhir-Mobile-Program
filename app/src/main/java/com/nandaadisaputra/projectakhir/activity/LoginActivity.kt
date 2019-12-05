@@ -1,5 +1,6 @@
 package com.nandaadisaputra.projectakhir.activity
 
+import android.annotation.SuppressLint
 import android.content.Intent
 import android.database.Cursor
 import android.database.sqlite.SQLiteDatabase
@@ -9,9 +10,6 @@ import android.os.Bundle
 import android.text.method.HideReturnsTransformationMethod
 import android.text.method.PasswordTransformationMethod
 import android.view.View
-import android.widget.CheckBox
-import android.widget.CompoundButton
-import android.widget.EditText
 import android.widget.LinearLayout
 import androidx.appcompat.app.AppCompatActivity
 import com.google.android.gms.auth.api.signin.GoogleSignIn
@@ -39,6 +37,7 @@ class LoginActivity : AppCompatActivity(), View.OnClickListener {
     private var openHelper: SQLiteOpenHelper? = null
     private var cursor: Cursor? = null
     var sharedPrefManager: SharedPrefManager? = null
+    @SuppressLint("all")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_login)
@@ -88,8 +87,9 @@ class LoginActivity : AppCompatActivity(), View.OnClickListener {
             }
         }
         showPass.setOnClickListener {
-            if(showPass.text.toString().equals("Show")){
+            if(showPass.text.toString() == "Show"){
                 edt_loginPassword.transformationMethod = HideReturnsTransformationMethod.getInstance()
+
                 showPass.text = "Hide"
             } else{
                 edt_loginPassword.transformationMethod = PasswordTransformationMethod.getInstance()
