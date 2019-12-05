@@ -6,7 +6,12 @@ import android.database.sqlite.SQLiteDatabase
 import android.database.sqlite.SQLiteOpenHelper
 import android.graphics.drawable.AnimationDrawable
 import android.os.Bundle
+import android.text.method.HideReturnsTransformationMethod
+import android.text.method.PasswordTransformationMethod
 import android.view.View
+import android.widget.CheckBox
+import android.widget.CompoundButton
+import android.widget.EditText
 import android.widget.LinearLayout
 import androidx.appcompat.app.AppCompatActivity
 import com.google.android.gms.auth.api.signin.GoogleSignIn
@@ -23,6 +28,7 @@ import com.nandaadisaputra.projectakhir.network.SharedPrefManager
 import kotlinx.android.synthetic.main.layout_login.*
 import org.jetbrains.anko.*
 import org.jetbrains.anko.sdk27.coroutines.onClick
+
 
 class LoginActivity : AppCompatActivity(), View.OnClickListener {
     private val rcSignIn: Int = 1
@@ -81,8 +87,17 @@ class LoginActivity : AppCompatActivity(), View.OnClickListener {
                 }
             }
         }
-
+        showPass.setOnClickListener {
+            if(showPass.text.toString().equals("Show")){
+                edt_loginPassword.transformationMethod = HideReturnsTransformationMethod.getInstance()
+                showPass.text = "Hide"
+            } else{
+                edt_loginPassword.transformationMethod = PasswordTransformationMethod.getInstance()
+                showPass.text = "Show"
+            }
+        }
     }
+
 
     override fun onClick(v: View?) {
         when (v) {

@@ -30,4 +30,5 @@
     <string name="forgot_your_password">Forgot your password?</string>
     <string name="to_reset_password_enter_your_email_press_the_button_and_check_mail_to_follow_instruction">To reset password, enter your email, press the button and check mail to follow instruction.</string>
     <string name="your_email_here">Your email here</string>
+    <string name="show_password">Show Password</string>
 </resources>
