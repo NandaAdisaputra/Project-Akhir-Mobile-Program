@@ -1,6 +1,6 @@
 package com.nandaadisaputra.projectakhir.network
 
-import com.nandaadisaputra.projectakhir.model.ProductModel
+import com.nandaadisaputra.projectakhir.model.show.ProductModel
 import okhttp3.ResponseBody
 import retrofit2.Call
 import retrofit2.http.Field
@@ -13,7 +13,7 @@ interface ApiService {
 
     @GET("api/barang")
     //mengambil data dari api_get.php
-    fun ambilData(): Call<ArrayList<ProductModel>>
+    fun getData(): Call<ArrayList<ProductModel>>
     //metode ambilData memanggil ArrayList dari ProdukModel
 
     @FormUrlEncoded

@@ -1,4 +1,4 @@
-package com.nandaadisaputra.projectakhir.fragment
+package com.nandaadisaputra.projectakhir.ui.fragment
 
 import android.os.Bundle
 import android.view.LayoutInflater

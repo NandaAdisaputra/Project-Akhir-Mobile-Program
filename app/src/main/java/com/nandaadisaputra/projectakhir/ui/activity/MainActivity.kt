@@ -1,4 +1,4 @@
-package com.nandaadisaputra.projectakhir.activity
+package com.nandaadisaputra.projectakhir.ui.activity
 
 import android.content.Context
 import android.content.Intent
@@ -13,15 +13,16 @@ import androidx.drawerlayout.widget.DrawerLayout
 import androidx.fragment.app.Fragment
 import com.google.android.material.navigation.NavigationView
 import com.nandaadisaputra.projectakhir.R
-import com.nandaadisaputra.projectakhir.fragment.AboutFragment
+import com.nandaadisaputra.projectakhir.ui.fragment.AboutFragment
 import com.nandaadisaputra.projectakhir.sharepref.SharedPrefManager
+import com.nandaadisaputra.projectakhir.ui.activity.login.LoginActivity
 import org.jetbrains.anko.*
 
 class MainActivity : AppCompatActivity() {
     private var pageContent: Fragment? = AboutFragment()
     private var title: String? = "Aplikasi Mobile GIS"
-    private val KEY_FRAGMENT: String? = null
-    private val KEY_TITLE: String? = null
+    private val keyFRAGMENT: String? = null
+    private val keyTITLE: String? = null
     var sharedPrefManager: SharedPrefManager? = null
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -68,16 +69,16 @@ class MainActivity : AppCompatActivity() {
             supportFragmentManager.beginTransaction().replace(R.id.fragment_container, pageContent!!).commit()
             toolbar.title = title
         } else {
-            pageContent = supportFragmentManager.getFragment(savedInstanceState, KEY_FRAGMENT!!)
-            title = savedInstanceState.getString(KEY_TITLE)
+            pageContent = supportFragmentManager.getFragment(savedInstanceState, keyFRAGMENT!!)
+            title = savedInstanceState.getString(keyTITLE)
             supportFragmentManager.beginTransaction().replace(R.id.fragment_container, pageContent!!).commit()
             toolbar.title = title
         }
     }
 
     override fun onSaveInstanceState(outState: Bundle) {
-        outState.putString(KEY_TITLE, title)
-        supportFragmentManager.putFragment(outState, KEY_FRAGMENT!!, pageContent!!)
+        outState.putString(keyTITLE, title)
+        supportFragmentManager.putFragment(outState, keyFRAGMENT!!, pageContent!!)
         super.onSaveInstanceState(outState)
     }
 

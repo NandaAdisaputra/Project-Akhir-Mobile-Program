@@ -1,4 +1,4 @@
-package com.nandaadisaputra.projectakhir.fragment
+package com.nandaadisaputra.projectakhir.ui.fragment
 
 import android.content.Intent
 import android.graphics.drawable.Drawable
@@ -18,7 +18,7 @@ import com.bumptech.glide.load.engine.GlideException
 import com.bumptech.glide.request.RequestListener
 import com.bumptech.glide.request.target.Target
 import com.nandaadisaputra.projectakhir.R
-import com.nandaadisaputra.projectakhir.activity.MainActivity
+import com.nandaadisaputra.projectakhir.ui.activity.MainActivity
 import com.nandaadisaputra.projectakhir.network.ApiConfig
 import kotlinx.android.synthetic.main.fragment_add_item.*
 import okhttp3.ResponseBody
@@ -28,44 +28,42 @@ import retrofit2.Response
 
 class AddProductFragment : Fragment() {
 
-    private var stokBarang = 0
+    private var stockProduct = 0
 
-    var btnKirimProduk: Button? = null
-    var btnCekUrl: Button? = null
-    var iconTambah: ImageView? = null
-    var iconKurang: ImageView? = null
-    var edtStokProduk: EditText? = null
-    var edtNamaBarang: EditText? = null
-    var edtUrlGambar: EditText? = null
-    var edtDeskripsiBarang: EditText? = null
-    var edtHargaBarang: EditText? = null
+    var btnSendProduct: Button? = null
+    var btnCheckUrl: Button? = null
+    var iconAdd: ImageView? = null
+    var iconLess: ImageView? = null
+    var edtStockProduct: EditText? = null
+    var edtNameProduct: EditText? = null
+    var edtUrlImage: EditText? = null
+    var edtDescriptionImage: EditText? = null
+    var edtPriceProduct: EditText? = null
     override fun onCreateView(
             inflater: LayoutInflater, container: ViewGroup?,
             savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-        val view: View = inflater.inflate(R.layout.fragment_add_item ,container, false)
-        btnKirimProduk= view.findViewById(R.id.btn_kirim_produk)
-        btnCekUrl= view.findViewById(R.id.btn_cek_url)
-        iconTambah= view.findViewById(R.id.icon_plus)
-        iconKurang= view.findViewById(R.id.icon_minus)
-        edtStokProduk= view.findViewById(R.id.edt_stok_barang)
+        val view: View = inflater.inflate(R.layout.fragment_add_item, container, false)
+        btnSendProduct = view.findViewById(R.id.btn_send_product)
+        btnCheckUrl = view.findViewById(R.id.btn_check_url)
+        iconAdd = view.findViewById(R.id.icon_plus)
+        iconLess = view.findViewById(R.id.icon_minus)
+        edtStockProduct = view.findViewById(R.id.edt_stock_product)
+        edtNameProduct = view.findViewById(R.id.edt_name_product)
+        edtUrlImage = view.findViewById(R.id.edt_url_image)
+        edtDescriptionImage = view.findViewById(R.id.edt_description_product)
+        edtPriceProduct = view.findViewById(R.id.edt_price_product)
 
-        edtStokProduk= view.findViewById(R.id.edt_stok_barang)
-        edtNamaBarang= view.findViewById(R.id.edt_nama_barang)
-        edtUrlGambar= view.findViewById(R.id.edt_url_gambar)
-        edtDeskripsiBarang= view.findViewById(R.id.edt_deskripsi_barang)
-        edtHargaBarang= view.findViewById(R.id.edt_harga_barang)
-
-        btnKirimProduk?.setOnClickListener {
+        btnSendProduct?.setOnClickListener {
 
             val apiService = ApiConfig.getApiService()
             apiService.tambahData(
-                    edtNamaBarang?.text.toString().trim(),
-                    edtUrlGambar?.text.toString().trim(),
-                    edtDeskripsiBarang?.text.toString().trim(),
-                    edtHargaBarang?.text.toString().trim(),
-                    edtStokProduk?.text.toString().trim()
+                    edtNameProduct?.text.toString().trim(),
+                    edtUrlImage?.text.toString().trim(),
+                    edtDescriptionImage?.text.toString().trim(),
+                    edtPriceProduct?.text.toString().trim(),
+                    edtStockProduct?.text.toString().trim()
             )
                     .enqueue(object : Callback<ResponseBody> {
                         override fun onResponse(
@@ -77,11 +75,11 @@ class AddProductFragment : Fragment() {
                                         activity, "Sukses Tambah",
                                         Toast.LENGTH_SHORT
                                 ).show()
-                                edtNamaBarang?.setText("")
-                                edtUrlGambar?.setText("")
-                                edtDeskripsiBarang?.setText("")
-                                edtHargaBarang?.setText("")
-                                edtStokProduk?.setText("")
+                                edtNameProduct?.setText("")
+                                edtUrlImage?.setText("")
+                                edtDescriptionImage?.setText("")
+                                edtPriceProduct?.setText("")
+                                edtStockProduct?.setText("")
 
                                 activity?.finishAffinity()
                                 val intent = Intent(context, MainActivity::class.java)
@@ -99,14 +97,14 @@ class AddProductFragment : Fragment() {
                     })
         }
 
-        btnCekUrl?.setOnClickListener {
+        btnCheckUrl?.setOnClickListener {
             //TODO Check url image is empty or not
-            if (edtUrlGambar?.getText().toString().isEmpty()) {
-                edtUrlGambar?.setError("Silahkan masukkan url gambar")
-                edtUrlGambar?.requestFocus()
+            if (edtUrlImage?.text.toString().isEmpty()) {
+                edtUrlImage?.error = "Please enter the image url"
+                edtUrlImage?.requestFocus()
             } else {
                 Glide.with(activity!!)
-                        .load(edtUrlGambar?.getText().toString())
+                        .load(edtUrlImage?.text.toString())
                         .addListener(object : RequestListener<Drawable> {
                             override fun onLoadFailed(
                                     @Nullable e: GlideException?, model: Any,
@@ -131,9 +129,9 @@ class AddProductFragment : Fragment() {
             }
         }
 
-        edtStokProduk?.setText("" + stokBarang)
-        iconTambah?.setOnClickListener {
-            if (edtStokProduk?.text.toString().isEmpty()) {
+        edtStockProduct?.setText("" + stockProduct)
+        iconAdd?.setOnClickListener {
+            if (edtStockProduct?.text.toString().isEmpty()) {
                 resetStokBarang()
                 tambahStokBarang()
             } else {
@@ -141,8 +139,8 @@ class AddProductFragment : Fragment() {
             }
         }
 
-        iconKurang?.setOnClickListener {
-            if (edtStokProduk?.text.toString().isEmpty()) {
+        iconLess?.setOnClickListener {
+            if (edtStockProduct?.text.toString().isEmpty()) {
                 resetStokBarang()
                 kurangStokBarang()
             } else {
@@ -156,13 +154,13 @@ class AddProductFragment : Fragment() {
 
     private fun kurangStokBarang() {
         try {
-            stokBarang = Integer.parseInt(edtStokProduk?.text.toString().trim())
-            if (stokBarang == 0) {
+            stockProduct = Integer.parseInt(edtStockProduct?.text.toString().trim())
+            if (stockProduct == 0) {
                 Toast.makeText(activity, "Barang tidak bisa kurang dari 0", Toast.LENGTH_SHORT)
                         .show()
             } else {
-                stokBarang = stokBarang - 1
-                edtStokProduk?.setText("" + stokBarang)
+                stockProduct -= 1
+                edtStockProduct?.setText("" + stockProduct)
             }
         } catch (nfe: NumberFormatException) {
             resetStokBarang()
@@ -172,15 +170,15 @@ class AddProductFragment : Fragment() {
     }
 
     private fun resetStokBarang() {
-        stokBarang = 0
-        edtStokProduk?.setText("" + stokBarang)
+        stockProduct = 0
+        edtStockProduct?.setText("" + stockProduct)
     }
 
     private fun tambahStokBarang() {
         try {
-            stokBarang = Integer.parseInt(edtStokProduk?.text.toString().trim())
-            stokBarang = stokBarang + 1
-            edtStokProduk?.setText("" + stokBarang)
+            stockProduct = Integer.parseInt(edtStockProduct?.text.toString().trim())
+            stockProduct += 1
+            edtStockProduct?.setText("" + stockProduct)
         } catch (nfe: NumberFormatException) {
             resetStokBarang()
             tambahStokBarang()

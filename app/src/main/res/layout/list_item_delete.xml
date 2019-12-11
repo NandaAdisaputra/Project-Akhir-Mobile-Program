@@ -14,19 +14,19 @@
         android:padding="10dp">
 
         <ImageView
-            android:id="@+id/IVProduk"
+            android:id="@+id/iv_product"
             android:layout_width="match_parent"
             android:layout_height="150dp" />
 
         <TextView
-            android:id="@+id/TVNama"
+            android:id="@+id/tv_name"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Tas Hitam"
             android:textSize="20sp" />
 
         <TextView
-            android:id="@+id/TVHarga"
+            android:id="@+id/tv_prices"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Rp. 150000"
@@ -34,7 +34,7 @@
         <Button
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:id="@+id/btnDelete"
+            android:id="@+id/btn_delete"
             android:background="@color/colorAccent"
             android:textColor="@android:color/white"
             android:textSize="20dp"

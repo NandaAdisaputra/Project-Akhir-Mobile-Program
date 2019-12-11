@@ -16,16 +16,16 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         tools:ignore="AllowBackup,GoogleAppIndexingWarning">
-        <activity android:name=".activity.SplashScreenActivity" />
-        <activity android:name=".activity.item.UpdateProductActivity" />
-        <activity android:name=".activity.item.ProductDetailsActivity" />
-        <activity android:name=".activity.MainActivity" />
-        <activity android:name=".activity.RegisterActivity" />
-        <activity android:name=".activity.LoginActivity" />
+        <activity android:name=".ui.activity.SplashScreenActivity" />
+        <activity android:name=".ui.activity.product.UpdateProductActivity" />
+        <activity android:name=".ui.activity.product.ProductDetailsActivity" />
+        <activity android:name=".ui.activity.MainActivity" />
+        <activity android:name=".ui.activity.login.RegisterActivity" />
+        <activity android:name=".ui.activity.login.LoginActivity" />
         <activity
-            android:name=".activity.ResetPasswordActivity"
+            android:name=".ui.activity.login.ResetPasswordActivity"
             android:label="title_activity_reset_password" />
-        <activity android:name=".activity.item.ProductActivity">
+        <activity android:name=".ui.activity.product.ProductActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

@@ -4,7 +4,7 @@
     style="@style/loginParent"
     android:background="#F1D1DC"
     android:orientation="vertical"
-    tools:context=".activity.LoginActivity">
+    tools:context=".ui.activity.login.LoginActivity">
 
     <ScrollView style="@style/parent">
 

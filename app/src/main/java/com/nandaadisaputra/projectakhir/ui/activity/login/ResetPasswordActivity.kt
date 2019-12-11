@@ -1,4 +1,4 @@
-package com.nandaadisaputra.projectakhir.activity
+package com.nandaadisaputra.projectakhir.ui.activity.login
 
 import android.content.Intent
 import android.os.Bundle

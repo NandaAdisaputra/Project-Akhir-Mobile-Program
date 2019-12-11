@@ -1,4 +1,4 @@
-package com.nandaadisaputra.projectakhir.model
+package com.nandaadisaputra.projectakhir.model.show
 
 import com.google.gson.annotations.SerializedName
 

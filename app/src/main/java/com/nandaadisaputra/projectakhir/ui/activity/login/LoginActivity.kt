@@ -1,4 +1,4 @@
-package com.nandaadisaputra.projectakhir.activity
+package com.nandaadisaputra.projectakhir.ui.activity.login
 
 import android.annotation.SuppressLint
 import android.content.Intent
@@ -21,6 +21,7 @@ import com.google.android.gms.tasks.Task
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.GoogleAuthProvider
 import com.nandaadisaputra.projectakhir.R
+import com.nandaadisaputra.projectakhir.ui.activity.MainActivity
 import com.nandaadisaputra.projectakhir.database.DatabaseHelper
 import com.nandaadisaputra.projectakhir.sharepref.SharedPrefManager
 import kotlinx.android.synthetic.main.layout_login.*

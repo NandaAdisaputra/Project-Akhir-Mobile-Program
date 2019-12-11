@@ -1,4 +1,4 @@
-package com.nandaadisaputra.projectakhir.activity
+package com.nandaadisaputra.projectakhir.ui.activity.login
 
 import android.content.ContentValues
 import android.database.sqlite.SQLiteDatabase
@@ -8,8 +8,8 @@ import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import com.nandaadisaputra.projectakhir.database.DatabaseHelper
 import com.nandaadisaputra.projectakhir.R
+import com.nandaadisaputra.projectakhir.ui.activity.MainActivity
 import kotlinx.android.synthetic.main.activity_register.*
-import kotlinx.android.synthetic.main.layout_login.*
 import org.jetbrains.anko.sdk27.coroutines.onClick
 import org.jetbrains.anko.selector
 import org.jetbrains.anko.startActivity

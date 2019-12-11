@@ -13,10 +13,11 @@ import androidx.fragment.app.FragmentActivity
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.nandaadisaputra.projectakhir.R
-import com.nandaadisaputra.projectakhir.activity.MainActivity
-import com.nandaadisaputra.projectakhir.model.ProductModel
+import com.nandaadisaputra.projectakhir.ui.activity.MainActivity
+import com.nandaadisaputra.projectakhir.model.show.ProductModel
 import com.nandaadisaputra.projectakhir.network.ApiConfig
 import okhttp3.ResponseBody
+import org.jetbrains.anko.sdk27.coroutines.onClick
 import org.json.JSONException
 import org.json.JSONObject
 import retrofit2.Call
@@ -26,17 +27,17 @@ import java.io.IOException
 import java.util.ArrayList
 
 class DeleteProductAdapter(private val context: FragmentActivity?,
-                           private val produkModel: ArrayList<ProductModel>?
+                           private val productModel: ArrayList<ProductModel>?
 )
     : RecyclerView.Adapter<DeleteProductAdapter.ViewHolder>()
 
 {
     private var id: String? = null
     inner class ViewHolder(view: View) :RecyclerView.ViewHolder(view) {
-        val iVProduk:ImageView = view.findViewById(R.id.IVProduk)
-        val tvNama:TextView = view.findViewById(R.id.TVNama)
-        val tvHargaProduk:TextView = view.findViewById(R.id.TVHarga)
-        val btnDelete:Button = view.findViewById(R.id.btnDelete)
+        val ivProduct:ImageView = view.findViewById(R.id.iv_product)
+        val tvName:TextView = view.findViewById(R.id.tv_name)
+        val tvProductPrices:TextView = view.findViewById(R.id.tv_prices)
+        val btnDelete:Button = view.findViewById(R.id.btn_delete)
     }
 
     override fun onCreateViewHolder(
@@ -50,21 +51,21 @@ class DeleteProductAdapter(private val context: FragmentActivity?,
     }
 
     override fun getItemCount(): Int {
-        return produkModel!!.size
+        return productModel!!.size
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-        holder.tvNama.text = produkModel!!.get(position).namaBarang
-        holder.tvHargaProduk.text = produkModel!!.get(position).hargaBarang
+        holder.tvName.text = productModel!![position].namaBarang
+        holder.tvProductPrices.text = productModel!![position].hargaBarang
         context?.let {
             Glide.with(it)
-                .load(produkModel.get(position).imageBarang)
+                .load(productModel[position].imageBarang)
                 .override(512, 512)
-                .into(holder.iVProduk)
+                .into(holder.ivProduct)
         }
 
-        holder.btnDelete.setOnClickListener {
-            id = produkModel.get(position).idBarang
+        holder.btnDelete.onClick {
+            id = productModel[position].idBarang
             val apiService = ApiConfig.getApiService()
             id?.let { it1 ->
                 apiService.deleteData(it1).enqueue(object : Callback<ResponseBody> {

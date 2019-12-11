@@ -10,17 +10,18 @@ import androidx.fragment.app.FragmentActivity
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.nandaadisaputra.projectakhir.R
-import com.nandaadisaputra.projectakhir.activity.item.ProductDetailsActivity
-import com.nandaadisaputra.projectakhir.model.ProductModel
+import com.nandaadisaputra.projectakhir.ui.activity.product.ProductDetailsActivity
+import com.nandaadisaputra.projectakhir.model.show.ProductModel
+import org.jetbrains.anko.sdk27.coroutines.onClick
 import java.util.*
 
 class ShowProductAdapter(private val context: FragmentActivity?,
-                         private val produkModel: ArrayList<ProductModel>?
+                         private val productModel: ArrayList<ProductModel>?
 ) : RecyclerView.Adapter<ShowProductAdapter.ViewHolder>() {
     inner class ViewHolder(view: View) : RecyclerView.ViewHolder(view) {
-        val iVProduk: ImageView = view.findViewById(R.id.IVProduk)
-        val tvNama: TextView = view.findViewById(R.id.TVNama)
-        val tvHargaProduk: TextView = view.findViewById(R.id.TVHarga)
+        val ivProduct: ImageView = view.findViewById(R.id.iv_product)
+        val tvName: TextView = view.findViewById(R.id.tv_name)
+        val tvProductPrices: TextView = view.findViewById(R.id.tv_prices)
     }
 
     override fun onCreateViewHolder(
@@ -34,27 +35,27 @@ class ShowProductAdapter(private val context: FragmentActivity?,
     }
 
     override fun getItemCount(): Int {
-        return produkModel!!.size
+        return productModel!!.size
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-        holder.tvNama.text = produkModel!!.get(position).namaBarang
-        holder.tvHargaProduk.text = produkModel!!.get(position).hargaBarang
+        holder.tvName.text = productModel!![position].namaBarang
+        holder.tvProductPrices.text = productModel!![position].hargaBarang
         context?.let {
             Glide.with(it)
-                    .load(produkModel.get(position).imageBarang)
+                    .load(productModel[position].imageBarang)
                     .override(512, 512)
-                    .into(holder.iVProduk)
+                    .into(holder.ivProduct)
         }
 
-        holder.itemView.setOnClickListener {
+        holder.itemView.onClick {
             val intent = Intent(context, ProductDetailsActivity::class.java)
-            intent.putExtra("ID_BARANG", produkModel.get(position).idBarang)
-            intent.putExtra("NAMA_BARANG", produkModel.get(position).namaBarang)
-            intent.putExtra("IMAGE_BARANG", produkModel.get(position).imageBarang)
-            intent.putExtra("DESKRIPSI_BARANG", produkModel.get(position).deskripsiBarang)
-            intent.putExtra("HARGA_BARANG", produkModel.get(position).hargaBarang)
-            intent.putExtra("STOK_BARANG", produkModel.get(position).stokBarang)
+            intent.putExtra("ID_BARANG", productModel[position].idBarang)
+            intent.putExtra("NAMA_BARANG", productModel[position].namaBarang)
+            intent.putExtra("IMAGE_BARANG", productModel[position].imageBarang)
+            intent.putExtra("DESKRIPSI_BARANG", productModel[position].deskripsiBarang)
+            intent.putExtra("HARGA_BARANG", productModel[position].hargaBarang)
+            intent.putExtra("STOK_BARANG", productModel[position].stokBarang)
             context?.startActivity(intent)
         }
     }

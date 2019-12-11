@@ -5,8 +5,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
-    tools:context=".activity.item.ProductDetailsActivity"
-    tools:showIn="@layout/activity_detail_product ">
+    tools:context=".ui.activity.product.ProductDetailsActivity"
+    tools:showIn="@layout/activity_detail_product">
 
 
     <LinearLayout
@@ -30,10 +30,10 @@
                 android:textSize="18sp"
                 android:textStyle="bold" />
             <TextView
+                android:id="@+id/tv_price_product"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="@string/harga_barang"
-                android:id="@+id/tvHargaBarang"
                 android:padding="10dp"
                 android:textSize="14sp"/>
 
@@ -53,10 +53,10 @@
                 android:textSize="18sp"
                 android:textStyle="bold" />
             <TextView
+                android:id="@+id/tv_stock_product"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="@string/stok_barang"
-                android:id="@+id/tvstokBarang"
                 android:padding="10dp"
                 android:textSize="14sp"/>
 
@@ -76,21 +76,21 @@
                 android:textSize="18sp"
                 android:textStyle="bold" />
             <TextView
+                android:id="@+id/tv_description_product"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="@string/deskripsi_barang"
                 android:padding="10dp"
-                android:id="@+id/tvDeskripsiBarang"
                 android:textSize="14sp"/>
 
         </LinearLayout>
 
 
         <Button
+            android:id="@+id/btn_edit"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="@string/edit_produk"
-            android:id="@+id/btnEdit"
             android:background="@android:color/holo_blue_light"
             android:textColor="@android:color/white"
             android:textSize="20sp"

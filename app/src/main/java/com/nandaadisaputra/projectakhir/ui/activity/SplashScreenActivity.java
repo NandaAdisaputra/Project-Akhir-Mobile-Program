@@ -1,4 +1,4 @@
-package com.nandaadisaputra.projectakhir.activity;
+package com.nandaadisaputra.projectakhir.ui.activity;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -11,6 +11,7 @@ import android.widget.ImageView;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.nandaadisaputra.projectakhir.R;
+import com.nandaadisaputra.projectakhir.ui.activity.login.RegisterActivity;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;

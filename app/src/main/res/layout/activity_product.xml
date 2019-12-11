@@ -6,7 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".activity.item.ProductActivity">
+    tools:context=".ui.activity.product.ProductActivity">
 
     <TextView
         android:layout_width="match_parent"
@@ -16,7 +16,7 @@
         android:id="@+id/tvToken"/>
 
     <com.ogaclejapan.smarttablayout.SmartTabLayout
-        android:id="@+id/viewpagertab"
+        android:id="@+id/view_pager_tab"
         android:layout_width="match_parent"
         android:layout_height="48dp"
         app:stl_indicatorAlwaysInCenter="false"

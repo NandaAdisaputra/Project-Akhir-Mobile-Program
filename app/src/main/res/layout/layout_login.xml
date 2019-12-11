@@ -9,7 +9,7 @@
     android:background="@color/whiteCardColor"
     android:elevation="5dp"
     app:cardCornerRadius="@dimen/loginCardRadius"
-    tools:context=".activity.LoginActivity"
+    tools:context=".ui.activity.login.LoginActivity"
     tools:targetApi="lollipop">
 
     <LinearLayout

@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:fitsSystemWindows="true"
-    tools:context=".activity.item.ProductDetailsActivity">
+    tools:context=".ui.activity.product.ProductDetailsActivity">
 
     <com.google.android.material.appbar.AppBarLayout
         android:id="@+id/app_bar"
@@ -27,7 +27,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:src="@android:drawable/btn_minus"
-                android:id="@+id/ivBackdropProduk"/>
+                android:id="@+id/ivBackdropProduct"/>
 
             <androidx.appcompat.widget.Toolbar
                 android:id="@+id/toolbar"
