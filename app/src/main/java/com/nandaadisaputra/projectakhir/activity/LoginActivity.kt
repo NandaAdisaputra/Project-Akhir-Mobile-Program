@@ -22,7 +22,7 @@ import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.GoogleAuthProvider
 import com.nandaadisaputra.projectakhir.R
 import com.nandaadisaputra.projectakhir.database.DatabaseHelper
-import com.nandaadisaputra.projectakhir.network.SharedPrefManager
+import com.nandaadisaputra.projectakhir.sharepref.SharedPrefManager
 import kotlinx.android.synthetic.main.layout_login.*
 import org.jetbrains.anko.*
 import org.jetbrains.anko.sdk27.coroutines.onClick
@@ -82,7 +82,7 @@ class LoginActivity : AppCompatActivity(), View.OnClickListener {
                         vs()
                     }
                 } else {
-                    toast("Login Gagal")
+                    toast("Username and password do not match")
                 }
             }
         }

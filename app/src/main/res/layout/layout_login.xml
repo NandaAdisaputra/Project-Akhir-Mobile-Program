@@ -35,7 +35,7 @@
                 style="@style/modifiedEditText"
                 android:drawableStart="@drawable/ic_email"
                 android:hint="@string/email"
-                android:textSize="18sp"
+                android:textSize="@dimen/_18ssp"
                 android:inputType="textEmailAddress"
                 android:maxLines="1"
                 tools:ignore="Autofill" />

@@ -42,7 +42,7 @@
                 <TextView
                     style="@style/headerText"
                     android:layout_gravity="center"
-                    android:layout_marginTop="40dp"
+                    android:layout_marginTop="@dimen/_40sdp"
                     android:text="@string/welcome_to_marketplace" />
 
                 <include layout="@layout/layout_login" />

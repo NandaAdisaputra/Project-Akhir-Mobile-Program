@@ -9,9 +9,11 @@ android {
         applicationId "com.nandaadisaputra.projectakhir"
         minSdkVersion 19
         targetSdkVersion 29
+        multiDexEnabled true
         versionCode 1
         versionName "1.0"
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+        buildConfigField("String", "BASE_URL", "\"https://shopher.000webhostapp.com/server/\"")
 
     }
 
@@ -40,12 +42,40 @@ dependencies {
     implementation 'com.google.firebase:firebase-auth:19.2.0'
     implementation 'com.google.firebase:firebase-analytics:17.2.1'
     implementation 'com.google.firebase:firebase-core:17.2.1'
+
+    implementation 'com.android.support:multidex:1.0.3'
+
+    implementation 'com.ogaclejapan.smarttablayout:library:2.0.0@aar'
+    implementation 'com.ogaclejapan.smarttablayout:utils-v4:2.0.0@aar'
+    implementation 'com.android.support:multidex:1.0.3'
+
+    //retrofit
     implementation 'com.squareup.retrofit2:retrofit:2.6.2'
     implementation 'com.squareup.retrofit2:converter-gson:2.6.2'
+    implementation 'com.google.code.gson:gson:2.8.6'
+    implementation 'com.squareup.okhttp3:okhttp:4.2.2'
+    implementation 'com.squareup.okhttp3:logging-interceptor:4.2.2'
+    //swiperefresh
+    implementation 'androidx.swiperefreshlayout:swiperefreshlayout:1.0.0'
+    //Library RX
+    implementation 'io.reactivex.rxjava2:rxkotlin:2.2.0'
+    implementation "io.reactivex.rxjava2:rxjava:2.2.0"
+    implementation 'io.reactivex.rxjava2:rxandroid:2.1.0'
+    implementation 'com.jakewharton.rxbinding2:rxbinding:2.1.1'
     // Anko Commons
     implementation "org.jetbrains.anko:anko:$anko_version"
     implementation "org.jetbrains.anko:anko-commons:$anko_version"
     implementation 'com.intuit.sdp:sdp-android:1.0.6'
+
+    //Library Glide
+    implementation 'com.github.bumptech.glide:glide:4.10.0'
+    implementation 'androidx.legacy:legacy-support-v4:1.0.0'
+    annotationProcessor 'com.github.bumptech.glide:compiler:4.10.0'
+
+    //dimen
+    implementation 'com.intuit.ssp:ssp-android:1.0.6'
+    implementation 'com.intuit.sdp:sdp-android:1.0.6'
+
     //Butterknife
     implementation 'com.jakewharton:butterknife:10.2.0'
     annotationProcessor 'com.jakewharton:butterknife-compiler:10.2.0'

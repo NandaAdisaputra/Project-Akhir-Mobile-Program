@@ -3,9 +3,13 @@
     <group>
         <item android:title="@string/menu">
             <menu>
+                <item
+                    android:id="@+id/nav_add"
+                    android:icon="@drawable/ic_note"
+                    android:title="@string/buyer_data"/>
                   <item
                     android:id="@+id/menu_tentang"
-                    android:icon="@drawable/ic_info_black_24dp"
+                    android:icon="@drawable/ic_info"
                     android:title="@string/about" />
             </menu>
         </item>
@@ -13,7 +17,7 @@
             <menu>
                 <item
                     android:id="@+id/menu_keluar"
-                    android:icon="@drawable/ic_exit_to_app_black_24dp"
+                    android:icon="@drawable/ic_exit"
                     android:title="@string/exit" />
             </menu>
         </item>

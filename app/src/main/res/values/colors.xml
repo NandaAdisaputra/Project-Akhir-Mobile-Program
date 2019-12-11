@@ -13,19 +13,19 @@
     <color name="whiteCardColor">#fff</color>
     <color name="black2">#000000</color>
     <color name="red">#ff4141</color>
-    <color name="redorange">#FF7142</color>
+    <color name="red_orange">#FF7142</color>
     <color name="orange">#ffa143</color>
-    <color name="orangeyellow">#FFD04F</color>
+    <color name="orange_yellow">#FFD04F</color>
     <color name="yellow">#ffff5a</color>
-    <color name="yellowgreen">#ADFF5B</color>
+    <color name="yellow_green">#ADFF5B</color>
     <color name="green">#5bff5b</color>
-    <color name="greenblue">#478cb3</color>
+    <color name="green_blue">#478cb3</color>
     <color name="blue">#5454ff</color>
-    <color name="blueindigo">#5948BC</color>
+    <color name="blue_indigo">#5948BC</color>
     <color name="indigo">#5e3b78</color>
-    <color name="indigoviolet">#7E37A4</color>
+    <color name="indigo_violet">#7E37A4</color>
     <color name="violet">#a032cf</color>
-    <color name="violetred">#CF3A88</color>
+    <color name="violet_red">#CF3A88</color>
 
     <color name="colorBlack">#353B48</color>
     <color name="colorGray">#F2F2F2</color>

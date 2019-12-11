@@ -1,4 +1,4 @@
-package com.nandaadisaputra.projectakhir.network
+package com.nandaadisaputra.projectakhir.sharepref
 
 import android.content.Context
 import android.content.SharedPreferences

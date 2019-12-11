@@ -14,9 +14,8 @@ import androidx.fragment.app.Fragment
 import com.google.android.material.navigation.NavigationView
 import com.nandaadisaputra.projectakhir.R
 import com.nandaadisaputra.projectakhir.fragment.AboutFragment
-import com.nandaadisaputra.projectakhir.network.SharedPrefManager
+import com.nandaadisaputra.projectakhir.sharepref.SharedPrefManager
 import org.jetbrains.anko.*
-import kotlin.system.exitProcess
 
 class MainActivity : AppCompatActivity() {
     private var pageContent: Fragment? = AboutFragment()
