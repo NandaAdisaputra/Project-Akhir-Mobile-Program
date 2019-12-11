@@ -60,7 +60,7 @@ class UpdateProductActivity : AppCompatActivity() {
                         if (response.isSuccessful) {
                             toast("Success Updated")
                             finishAffinity()
-                            startActivity(Intent(applicationContext, MainActivity::class.java))
+                            startActivity(Intent(applicationContext, ProductActivity::class.java))
 
                         }
                     }

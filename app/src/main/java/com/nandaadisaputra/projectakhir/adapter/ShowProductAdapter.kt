@@ -10,8 +10,8 @@ import androidx.fragment.app.FragmentActivity
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.nandaadisaputra.projectakhir.R
+import com.nandaadisaputra.projectakhir.model.ProductModel
 import com.nandaadisaputra.projectakhir.ui.activity.product.ProductDetailsActivity
-import com.nandaadisaputra.projectakhir.model.show.ProductModel
 import org.jetbrains.anko.sdk27.coroutines.onClick
 import java.util.*
 
@@ -39,23 +39,23 @@ class ShowProductAdapter(private val context: FragmentActivity?,
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-        holder.tvName.text = productModel!![position].namaBarang
-        holder.tvProductPrices.text = productModel!![position].hargaBarang
+        holder.tvName.text = productModel!![position].nameProduct
+        holder.tvProductPrices.text = productModel!![position].priceProduct
         context?.let {
             Glide.with(it)
-                    .load(productModel[position].imageBarang)
+                    .load(productModel[position].imageProduct)
                     .override(512, 512)
                     .into(holder.ivProduct)
         }
 
         holder.itemView.onClick {
             val intent = Intent(context, ProductDetailsActivity::class.java)
-            intent.putExtra("ID_BARANG", productModel[position].idBarang)
-            intent.putExtra("NAMA_BARANG", productModel[position].namaBarang)
-            intent.putExtra("IMAGE_BARANG", productModel[position].imageBarang)
-            intent.putExtra("DESKRIPSI_BARANG", productModel[position].deskripsiBarang)
-            intent.putExtra("HARGA_BARANG", productModel[position].hargaBarang)
-            intent.putExtra("STOK_BARANG", productModel[position].stokBarang)
+            intent.putExtra("ID_PRODUCT", productModel[position].idProduct)
+            intent.putExtra("NAME_PRODUCT", productModel[position].nameProduct)
+            intent.putExtra("IMAGE_PRODUCT", productModel[position].imageProduct)
+            intent.putExtra("DESCRIPTION_PRODUCT", productModel[position].descriptionProduct)
+            intent.putExtra("PRICE_PRODUCT", productModel[position].priceProduct)
+            intent.putExtra("STOCK_PRODUCT", productModel[position].stockProduct)
             context?.startActivity(intent)
         }
     }

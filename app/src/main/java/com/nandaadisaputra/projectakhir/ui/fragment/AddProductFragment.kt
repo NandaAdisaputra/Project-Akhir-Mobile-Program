@@ -20,8 +20,10 @@ import com.bumptech.glide.request.target.Target
 import com.nandaadisaputra.projectakhir.R
 import com.nandaadisaputra.projectakhir.ui.activity.MainActivity
 import com.nandaadisaputra.projectakhir.network.ApiConfig
+import com.nandaadisaputra.projectakhir.ui.activity.product.ProductActivity
 import kotlinx.android.synthetic.main.fragment_add_item.*
 import okhttp3.ResponseBody
+import org.jetbrains.anko.support.v4.toast
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -58,7 +60,7 @@ class AddProductFragment : Fragment() {
         btnSendProduct?.setOnClickListener {
 
             val apiService = ApiConfig.getApiService()
-            apiService.tambahData(
+            apiService.addData(
                     edtNameProduct?.text.toString().trim(),
                     edtUrlImage?.text.toString().trim(),
                     edtDescriptionImage?.text.toString().trim(),
@@ -82,7 +84,7 @@ class AddProductFragment : Fragment() {
                                 edtStockProduct?.setText("")
 
                                 activity?.finishAffinity()
-                                val intent = Intent(context, MainActivity::class.java)
+                                val intent = Intent(context, ProductActivity::class.java)
                                 startActivity(intent)
 
                             }
@@ -111,7 +113,7 @@ class AddProductFragment : Fragment() {
                                     target: Target<Drawable>,
                                     isFirstResource: Boolean
                             ): Boolean {
-                                Toast.makeText(activity, "Url Tidak Valid", Toast.LENGTH_SHORT).show()
+                                toast("Invalid Url")
                                 return false
                             }
 
@@ -156,8 +158,7 @@ class AddProductFragment : Fragment() {
         try {
             stockProduct = Integer.parseInt(edtStockProduct?.text.toString().trim())
             if (stockProduct == 0) {
-                Toast.makeText(activity, "Barang tidak bisa kurang dari 0", Toast.LENGTH_SHORT)
-                        .show()
+                toast("Item cannot be less than 0")
             } else {
                 stockProduct -= 1
                 edtStockProduct?.setText("" + stockProduct)

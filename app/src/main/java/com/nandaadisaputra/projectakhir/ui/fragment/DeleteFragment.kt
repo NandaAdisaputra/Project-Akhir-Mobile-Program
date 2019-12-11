@@ -10,7 +10,7 @@ import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.nandaadisaputra.projectakhir.R
-import com.nandaadisaputra.projectakhir.model.show.ProductModel
+import com.nandaadisaputra.projectakhir.model.ProductModel
 import com.nandaadisaputra.projectakhir.adapter.DeleteProductAdapter
 import com.nandaadisaputra.projectakhir.network.ApiConfig
 import retrofit2.Call

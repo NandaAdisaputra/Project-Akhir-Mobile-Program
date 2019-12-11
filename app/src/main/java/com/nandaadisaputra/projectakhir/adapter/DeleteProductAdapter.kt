@@ -13,9 +13,9 @@ import androidx.fragment.app.FragmentActivity
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.nandaadisaputra.projectakhir.R
-import com.nandaadisaputra.projectakhir.ui.activity.MainActivity
-import com.nandaadisaputra.projectakhir.model.show.ProductModel
+import com.nandaadisaputra.projectakhir.model.ProductModel
 import com.nandaadisaputra.projectakhir.network.ApiConfig
+import com.nandaadisaputra.projectakhir.ui.activity.product.ProductActivity
 import okhttp3.ResponseBody
 import org.jetbrains.anko.sdk27.coroutines.onClick
 import org.json.JSONException
@@ -24,7 +24,7 @@ import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 import java.io.IOException
-import java.util.ArrayList
+import java.util.*
 
 class DeleteProductAdapter(private val context: FragmentActivity?,
                            private val productModel: ArrayList<ProductModel>?
@@ -55,17 +55,17 @@ class DeleteProductAdapter(private val context: FragmentActivity?,
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-        holder.tvName.text = productModel!![position].namaBarang
-        holder.tvProductPrices.text = productModel!![position].hargaBarang
+        holder.tvName.text = productModel!![position].nameProduct
+        holder.tvProductPrices.text = productModel!![position].priceProduct
         context?.let {
             Glide.with(it)
-                .load(productModel[position].imageBarang)
+                .load(productModel[position].imageProduct)
                 .override(512, 512)
                 .into(holder.ivProduct)
         }
 
         holder.btnDelete.onClick {
-            id = productModel[position].idBarang
+            id = productModel[position].idProduct
             val apiService = ApiConfig.getApiService()
             id?.let { it1 ->
                 apiService.deleteData(it1).enqueue(object : Callback<ResponseBody> {
@@ -78,7 +78,7 @@ class DeleteProductAdapter(private val context: FragmentActivity?,
                                 val jsonObject = JSONObject(response.body()!!.string())
                                 val error = jsonObject.optString("error_msg")
                                 Toast.makeText(context, "" + error, Toast.LENGTH_SHORT).show()
-                                context?.startActivity(Intent(context, MainActivity::class.java))
+                                context?.startActivity(Intent(context, ProductActivity::class.java))
                                 (context as Activity).finishAffinity()
                             } catch (e: JSONException) {
                                 e.printStackTrace()
