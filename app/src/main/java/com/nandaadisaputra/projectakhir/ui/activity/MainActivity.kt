@@ -6,80 +6,94 @@ import android.os.Bundle
 import android.provider.Settings
 import android.view.Menu
 import android.view.MenuItem
+import android.widget.FrameLayout
 import androidx.appcompat.app.ActionBarDrawerToggle
 import androidx.appcompat.app.AppCompatActivity
-import androidx.appcompat.widget.Toolbar
-import androidx.drawerlayout.widget.DrawerLayout
+import androidx.core.view.GravityCompat
 import androidx.fragment.app.Fragment
+import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.google.android.material.navigation.NavigationView
 import com.nandaadisaputra.projectakhir.R
-import com.nandaadisaputra.projectakhir.ui.fragment.AboutFragment
 import com.nandaadisaputra.projectakhir.sharepref.SharedPrefManager
 import com.nandaadisaputra.projectakhir.ui.activity.login.LoginActivity
+import com.nandaadisaputra.projectakhir.ui.fragment.AboutFragment
+import com.nandaadisaputra.projectakhir.ui.fragment.AdminProductFragment
+import com.nandaadisaputra.projectakhir.ui.fragment.ProfileFragment
+import kotlinx.android.synthetic.main.activity_main.*
+import kotlinx.android.synthetic.main.app_bar_main.*
 import org.jetbrains.anko.*
 
-class MainActivity : AppCompatActivity() {
-    private var pageContent: Fragment? = AboutFragment()
-    private var title: String? = "Aplikasi Mobile GIS"
-    private val keyFRAGMENT: String? = null
-    private val keyTITLE: String? = null
+class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelectedListener {
+
+    var content: FrameLayout? = null
     var sharedPrefManager: SharedPrefManager? = null
+
+    private val mOnNavigationItemSelectedListener =
+            BottomNavigationView.OnNavigationItemSelectedListener { item ->
+                when (item.itemId) {
+                    R.id.menu_admin -> {
+                        val fragment = AdminProductFragment.newInstance()
+                        addFragment(fragment)
+                        return@OnNavigationItemSelectedListener true
+                    }
+                    R.id.menu_about -> {
+                        val fragment = AboutFragment.newInstance()
+                        addFragment(fragment)
+                        return@OnNavigationItemSelectedListener true
+                    }
+                    R.id.menu_profile -> {
+                        val fragment = ProfileFragment.newInstance()
+                        addFragment(fragment)
+                        return@OnNavigationItemSelectedListener true
+                    }
+                }
+                false
+            }
+
+    private fun addFragment(fragment: Fragment) {
+        supportFragmentManager
+                .beginTransaction()
+                .replace(R.id.contentProduct, fragment, fragment.javaClass.simpleName)
+                .commit()
+    }
+
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+        setSupportActionBar(toolbar)
         sharedPrefManager = SharedPrefManager(this)
-        val toolbar = findViewById<Toolbar>(R.id.main_toolbar)
-        val drawerLayout = findViewById<DrawerLayout>(R.id.main_drawer)
-        val drawerToggle = ActionBarDrawerToggle(this, drawerLayout, toolbar, R.string.app_name, R.string.app_name)
-        drawerLayout.addDrawerListener(drawerToggle)
-        drawerToggle.syncState()
-        val navigationView = findViewById<NavigationView>(R.id.main_navigation)
-        navigationView.setNavigationItemSelectedListener { menuItem: MenuItem ->
-            when (menuItem.itemId) {
-                R.id.menu_tentang -> {
-                    pageContent = AboutFragment()
-                    title = "Marketplace"
-                }
-                R.id.menu_keluar -> {
-                    alert ("Apakah anda ingin logout ?"){
-                        noButton {
-                            toast("Anda tidak jadi Keluar")
-                            startActivity(intentFor<MainActivity>())
-                            finish()
-                        }
-                        yesButton {
-                            if(sharedPrefManager?.sPSudahLogin!!) {
-                                sharedPrefManager?.saveSPBoolean(SharedPrefManager.SP_SUDAH_LOGIN, false)
-                                startActivity(Intent(this@MainActivity, LoginActivity::class.java)
-                                        .addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP or Intent.FLAG_ACTIVITY_NEW_TASK))
-                                super.onBackPressed()
-                            }else {
-                                toast("Maaf Aplikasi Tugas Akhir Mobile Program belum sempurna")
-                            }
-                        }
-                    }.show()
-                }
-            }
-            supportFragmentManager.beginTransaction().replace(R.id.fragment_container, pageContent!!).commit()
-            toolbar.title = title
-            drawerLayout.closeDrawers()
-            true
-        }
-        if (savedInstanceState == null) {
-            supportFragmentManager.beginTransaction().replace(R.id.fragment_container, pageContent!!).commit()
-            toolbar.title = title
-        } else {
-            pageContent = supportFragmentManager.getFragment(savedInstanceState, keyFRAGMENT!!)
-            title = savedInstanceState.getString(keyTITLE)
-            supportFragmentManager.beginTransaction().replace(R.id.fragment_container, pageContent!!).commit()
-            toolbar.title = title
-        }
+
+        initView()
+
+
+        val toggle = ActionBarDrawerToggle(
+                this,
+                drawer_layout,
+                toolbar,
+                R.string.navigation_drawer_open,
+                R.string.navigation_drawer_close
+        )
+        drawer_layout.addDrawerListener(toggle)
+        toggle.syncState()
+
+        nav_view.setNavigationItemSelectedListener(this)
     }
 
-    override fun onSaveInstanceState(outState: Bundle) {
-        outState.putString(keyTITLE, title)
-        supportFragmentManager.putFragment(outState, keyFRAGMENT!!, pageContent!!)
-        super.onSaveInstanceState(outState)
+    private fun initView() {
+
+        navigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener)
+        val fragment = AdminProductFragment.newInstance()
+        addFragment(fragment)
+
+    }
+
+    override fun onBackPressed() {
+        if (drawer_layout.isDrawerOpen(GravityCompat.START)) {
+            drawer_layout.closeDrawer(GravityCompat.START)
+        } else {
+            super.onBackPressed()
+        }
     }
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
@@ -93,6 +107,34 @@ class MainActivity : AppCompatActivity() {
             startActivity(mIntent)
         }
         return super.onOptionsItemSelected(item)
+    }
+
+    override fun onNavigationItemSelected(item: MenuItem): Boolean {
+        // Handle navigation_drawer view Item clicks here.
+        when (item.itemId) {
+            R.id.menu_exit -> {
+                alert("Apakah anda ingin logout ?") {
+                    noButton {
+                        toast("Anda tidak jadi Keluar")
+                        startActivity(intentFor<MainActivity>())
+                        finish()
+                    }
+                    yesButton {
+                        if (sharedPrefManager?.sPSudahLogin!!) {
+                            sharedPrefManager?.saveSPBoolean(SharedPrefManager.SP_SUDAH_LOGIN, false)
+                            startActivity(Intent(this@MainActivity, LoginActivity::class.java)
+                                    .addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP or Intent.FLAG_ACTIVITY_NEW_TASK))
+                            super.onBackPressed()
+                        } else {
+                            toast("Maaf Aplikasi Tugas Akhir Mobile Program belum sempurna")
+                        }
+                    }
+                }.show()
+            }
+        }
+
+        drawer_layout.closeDrawer(GravityCompat.START)
+        return true
     }
 
     companion object {

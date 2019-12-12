@@ -49,6 +49,12 @@ dependencies {
     implementation 'com.ogaclejapan.smarttablayout:utils-v4:2.0.0@aar'
     implementation 'com.android.support:multidex:1.0.3'
 
+    // Material Navigation View Library
+    implementation 'com.shreyaspatil:MaterialNavigationView:1.1'
+    // Material Design Library
+    implementation 'com.google.android.material:material:1.0.0'
+    implementation 'com.google.android.material:material:1.2.0-alpha02'
+    implementation 'com.google.android.material:material:1.0.0'
     //retrofit
     implementation 'com.squareup.retrofit2:retrofit:2.6.2'
     implementation 'com.squareup.retrofit2:converter-gson:2.6.2'
@@ -66,16 +72,15 @@ dependencies {
     implementation "org.jetbrains.anko:anko:$anko_version"
     implementation "org.jetbrains.anko:anko-commons:$anko_version"
     implementation 'com.intuit.sdp:sdp-android:1.0.6'
-
+    //circle image
+    implementation 'de.hdodenhof:circleimageview:3.0.1'
     //Library Glide
     implementation 'com.github.bumptech.glide:glide:4.10.0'
     implementation 'androidx.legacy:legacy-support-v4:1.0.0'
     annotationProcessor 'com.github.bumptech.glide:compiler:4.10.0'
-
     //dimen
     implementation 'com.intuit.ssp:ssp-android:1.0.6'
     implementation 'com.intuit.sdp:sdp-android:1.0.6'
-
     //Butterknife
     implementation 'com.jakewharton:butterknife:10.2.0'
     annotationProcessor 'com.jakewharton:butterknife-compiler:10.2.0'

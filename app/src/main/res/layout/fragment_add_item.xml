@@ -1,11 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@android:color/white"
     android:orientation="vertical"
     android:padding="10dp">
 
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
     <ImageView
         android:id="@+id/icon_item_name"
         android:layout_width="24dp"
@@ -85,37 +88,24 @@
         android:minHeight="60dp"
         android:textSize="12sp" />
 
-    <ImageView
-        android:id="@+id/iv_photo"
-        android:layout_width="60dp"
-        android:layout_height="80dp"
+    <ImageButton
+        android:id="@+id/ivImage"
+        android:layout_width="@dimen/_150sdp"
+        android:layout_height="@dimen/_150sdp"
         android:layout_below="@id/edt_description_product"
-        android:background="#A7A7A7" />
-
-    <EditText
-        android:id="@+id/edt_url_image"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/edt_description_product"
-        android:layout_marginLeft="10dp"
-        android:layout_toRightOf="@id/iv_photo"
-        android:hint="Masukkan Url Gambar"
-        android:textSize="12sp" />
-
-    <Button
-        android:id="@+id/btn_check_url"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/edt_url_image"
-        android:layout_marginLeft="10dp"
-        android:layout_toRightOf="@id/iv_photo"
-        android:text="Cek Url Foto" />
+        android:background="@drawable/noimage" />
 
     <Button
         android:id="@+id/btn_send_product"
         android:layout_width="match_parent"
+        android:layout_below="@id/ivImage"
+        android:layout_marginTop="@dimen/_16sdp"
         android:layout_height="wrap_content"
+        android:textColor="@android:color/white"
+        android:textSize="@dimen/_12sdp"
+        android:background="@drawable/login_button"
         android:layout_alignParentBottom="true"
-        android:text="Buat Barang" />
+        android:text="@string/create_product" />
 
-</RelativeLayout>
+    </RelativeLayout>
+</ScrollView>

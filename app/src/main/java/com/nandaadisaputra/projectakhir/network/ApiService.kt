@@ -12,9 +12,9 @@ import java.util.ArrayList
 interface ApiService {
 
     @GET("api/barang")
-    //mengambil data dari api/barang
+    //take data dari api/barang
     fun getData(): Call<ArrayList<ProductModel>>
-    //metode ambilData memanggil ArrayList dari ProdukModel
+    //Data retrieve method is calling ArrayList dari ProductModel
 
     @FormUrlEncoded
     @POST("api/login/app")
@@ -26,11 +26,10 @@ interface ApiService {
     @FormUrlEncoded
     @POST("api/barang/simpan")
     fun addData(
-        @Field("nama_barang") nama_barang: String,
-        @Field("image_barang") image_barang: String,
-        @Field("deskripsi_barang") deskripsi_barang: String,
-        @Field("harga_barang") harga_barang: String,
-        @Field("stok_barang") stok_barang: String
+            @Field("nama_barang") nama_barang: String,
+            @Field("image_barang") image_barang: String,
+            @Field("deskripsi_barang") deskripsi_barang: String,
+            @Field("harga_barang") harga_barang: String
     ): Call<ResponseBody>
 
     @FormUrlEncoded
@@ -39,7 +38,7 @@ interface ApiService {
 
     @FormUrlEncoded
     @POST("api/barang/edit")
-     fun beliData(
+     fun buyData(
         @Field("id_barang") id_barang: String
     ): Call<ResponseBody>
 

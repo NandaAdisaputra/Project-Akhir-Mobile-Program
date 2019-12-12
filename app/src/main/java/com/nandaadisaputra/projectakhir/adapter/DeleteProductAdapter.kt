@@ -15,7 +15,8 @@ import com.bumptech.glide.Glide
 import com.nandaadisaputra.projectakhir.R
 import com.nandaadisaputra.projectakhir.model.ProductModel
 import com.nandaadisaputra.projectakhir.network.ApiConfig
-import com.nandaadisaputra.projectakhir.ui.activity.product.ProductActivity
+import com.nandaadisaputra.projectakhir.ui.activity.MainActivity
+import com.nandaadisaputra.projectakhir.ui.fragment.AdminProductFragment
 import okhttp3.ResponseBody
 import org.jetbrains.anko.sdk27.coroutines.onClick
 import org.json.JSONException
@@ -78,7 +79,7 @@ class DeleteProductAdapter(private val context: FragmentActivity?,
                                 val jsonObject = JSONObject(response.body()!!.string())
                                 val error = jsonObject.optString("error_msg")
                                 Toast.makeText(context, "" + error, Toast.LENGTH_SHORT).show()
-                                context?.startActivity(Intent(context, ProductActivity::class.java))
+                                context?.startActivity(Intent(context, MainActivity::class.java))
                                 (context as Activity).finishAffinity()
                             } catch (e: JSONException) {
                                 e.printStackTrace()

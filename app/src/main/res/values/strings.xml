@@ -15,6 +15,10 @@
     <string name="menu">Menu</string>
     <string name="about">About</string>
     <string name="exit">Exit</string>
+    <string name="admin">Admin</string>
+    <string name="profile">Profile</string>
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
 
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
@@ -45,4 +49,9 @@
     <string name="rp_150000">Rp. 150000</string>
     <string name="delete">Delete</string>
     <string name="token">token</string>
+    <string name="nanda_adisaputra">Nanda Adisaputra</string>
+    <string name="android_developer">Android Developer</string>
+    <string name="yes">Yes</string>
+    <string name="take_photo">Take Photo</string>
+    <string name="create_product">Create Product</string>
 </resources>

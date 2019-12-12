@@ -78,14 +78,16 @@
             android:id="@+id/iv_photo_update"
             android:layout_width="60dp"
             android:layout_height="80dp"
-            android:background="#A7A7A7" />
+            android:background="@drawable/noimage" />
 
         <Button
             android:id="@+id/btn_cek_url_update"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="10dp"
-            android:layout_toRightOf="@id/iv_photo"
+            android:textColor="@android:color/white"
+            android:background="#F14C84"
+            android:layout_toRightOf="@id/iv_photo_update"
             android:gravity="center"
             android:text="Cek Url Foto" />
 
@@ -106,6 +108,9 @@
         android:id="@+id/btn_update_product"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:textColor="@android:color/white"
+        android:textSize="@dimen/_14sdp"
+        android:background="@drawable/login_button"
         android:layout_alignParentBottom="true"
         android:text="Buat Barang" />
 

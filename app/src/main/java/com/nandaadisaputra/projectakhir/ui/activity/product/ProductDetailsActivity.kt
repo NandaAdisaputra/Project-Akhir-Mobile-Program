@@ -9,9 +9,14 @@ import com.bumptech.glide.Glide
 import com.google.android.material.snackbar.Snackbar
 import com.nandaadisaputra.projectakhir.R
 import com.nandaadisaputra.projectakhir.network.ApiConfig
+import com.nandaadisaputra.projectakhir.ui.activity.MainActivity
+import com.nandaadisaputra.projectakhir.ui.fragment.AdminProductFragment
 import kotlinx.android.synthetic.main.activity_detail_product.*
 import kotlinx.android.synthetic.main.content_detail_product.*
 import okhttp3.ResponseBody
+import org.jetbrains.anko.sdk27.coroutines.onClick
+import org.jetbrains.anko.startActivity
+import org.jetbrains.anko.toast
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -32,9 +37,11 @@ class ProductDetailsActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_detail_product)
         setSupportActionBar(toolbar)
-        fab.setOnClickListener { view ->
-            Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                    .setAction("Action", null).show()
+        fab.onClick{ view ->
+            if (view != null) {
+                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
+                        .setAction("Action", null).show()
+            }
         }
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
         myMediaPlayer = MediaPlayer.create(this, R.raw.battle)
@@ -56,26 +63,20 @@ class ProductDetailsActivity : AppCompatActivity() {
         fab.setOnClickListener {
             myMediaPlayer?.start()
             val apiService = ApiConfig.getApiService()
-            apiService.beliData(idProduct!!).enqueue(object : Callback<ResponseBody> {
+            apiService.buyData(idProduct!!).enqueue(object : Callback<ResponseBody> {
                 override fun onResponse(
                         call: Call<ResponseBody>,
                         response: Response<ResponseBody>
                 ) {
                     if (response.isSuccessful) {
-                        Toast.makeText(
-                                this@ProductDetailsActivity, "Sukses",
-                                Toast.LENGTH_SHORT
-                        ).show()
-                        startActivity(Intent(applicationContext, ProductActivity::class.java))
+                        toast("Success")
+                        startActivity<MainActivity>()
                         finishAffinity()
                     }
                 }
 
                 override fun onFailure(call: Call<ResponseBody>, t: Throwable) {
-                    Toast.makeText(
-                            this@ProductDetailsActivity, "" + t.message,
-                            Toast.LENGTH_SHORT
-                    ).show()
+                    toast("" + t.message)
                 }
             })
         }

@@ -18,7 +18,7 @@ import butterknife.ButterKnife;
 
 public class SplashScreenActivity extends AppCompatActivity {
 
-    Animation frombottom, fromtop;
+    Animation fromBottom, fromTop;
     @BindView(R.id.resume)
     ImageView resume;
     @BindView(R.id.get_started)
@@ -30,18 +30,15 @@ public class SplashScreenActivity extends AppCompatActivity {
         setContentView(R.layout.activity_splash_screen);
         ButterKnife.bind(this);
 
-        frombottom = AnimationUtils.loadAnimation(this, R.anim.frombottom);
-        fromtop = AnimationUtils.loadAnimation(this, R.anim.fromtop);
+        fromBottom = AnimationUtils.loadAnimation(this, R.anim.frombottom);
+        fromTop = AnimationUtils.loadAnimation(this, R.anim.fromtop);
 
-        getStarted.setAnimation(frombottom);
-        resume.setAnimation(fromtop);
+        getStarted.setAnimation(fromBottom);
+        resume.setAnimation(fromTop);
 
-        getStarted.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(SplashScreenActivity.this, RegisterActivity.class);
-                SplashScreenActivity.this.startActivity(intent);
-            }
+        getStarted.setOnClickListener(view -> {
+            Intent intent = new Intent(SplashScreenActivity.this, RegisterActivity.class);
+            SplashScreenActivity.this.startActivity(intent);
         });
     }
 }
