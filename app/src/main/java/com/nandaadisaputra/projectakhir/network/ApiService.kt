@@ -43,7 +43,7 @@ interface ApiService {
     ): Call<ResponseBody>
 
     @FormUrlEncoded
-    @POST("api/barang/edit")
+    @POST("api/barang/update")
     fun updateData(
         @Field("id_barang") id_barang: String,
         @Field("nama_barang") nama_barang: String,

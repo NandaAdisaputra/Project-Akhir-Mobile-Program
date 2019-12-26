@@ -1,0 +1,159 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--TODO 5 Mengatur tampilan detail mahasiswa-->
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:padding="10dp"
+    tools:context=".ui.activity.DetailProfileActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <TextView android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/detail_mahasiswa"
+            android:textSize="18sp"
+            android:layout_gravity="center_horizontal"/>
+
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:src="@drawable/gambar"
+            android:textSize="25sp"
+            android:layout_marginTop="16dp"
+            android:layout_gravity="center"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:ignore="ContentDescription" />
+
+        <!--Nama-->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp">
+
+            <TextView android:layout_width="100dp"
+                android:layout_height="wrap_content"
+                android:text="@string/nama"
+                android:textSize="14sp"/>
+
+            <TextView
+                android:id="@+id/dsa_tv_name"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="14sp"
+                android:text="@string/nanda_adisaputra"/>
+
+        </LinearLayout>
+
+        <!--Usia-->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp">
+
+            <TextView android:layout_width="100dp"
+                android:layout_height="wrap_content"
+                android:text="@string/sekolah"
+                android:textSize="14sp"/>
+
+            <TextView
+                android:id="@+id/dsa_tv_age"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="14sp"
+                android:text="@string/sma_negeri_10_semar_ang"/>
+
+        </LinearLayout>
+
+        <!--Alamat-->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp">
+
+            <TextView android:layout_width="100dp"
+                android:layout_height="wrap_content"
+                android:text="@string/tahun_lulus"
+                android:textSize="14sp"/>
+
+            <TextView
+                android:id="@+id/dsa_tv_address"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="14sp"
+                android:text="@string/_2014"/>
+
+        </LinearLayout>
+
+        <!--Jurusan-->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp">
+
+            <TextView android:layout_width="100dp"
+                android:layout_height="wrap_content"
+                android:text="@string/jurusan"
+                android:textSize="14sp"/>
+
+            <TextView
+                android:id="@+id/dsa_tv_major"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="14sp"
+                android:textStyle="bold"
+                android:text="@string/ipa"/>
+
+        </LinearLayout>
+        <!--Universitas-->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp">
+
+            <TextView android:layout_width="100dp"
+                android:layout_height="wrap_content"
+                android:text="@string/universitas"
+                android:textSize="14sp"/>
+
+            <TextView
+                android:id="@+id/universitas"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="14sp"
+                android:textStyle="bold"
+                android:text="@string/universitas_semarang"/>
+
+        </LinearLayout>
+        <!--Jurusan-->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp">
+
+            <TextView android:layout_width="100dp"
+                android:layout_height="wrap_content"
+                android:text="@string/jurusan_kuliah"
+                android:textSize="14sp"/>
+
+            <TextView
+                android:id="@+id/teknikinformatika"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="14sp"
+                android:textStyle="bold"
+                android:text="@string/teknik_informatika"/>
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+</RelativeLayout>

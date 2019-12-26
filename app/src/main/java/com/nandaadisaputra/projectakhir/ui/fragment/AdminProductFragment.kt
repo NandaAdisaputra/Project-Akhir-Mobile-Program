@@ -11,7 +11,6 @@ import androidx.fragment.app.Fragment
 import androidx.viewpager.widget.ViewPager
 import com.google.android.material.tabs.TabLayout
 import com.nandaadisaputra.projectakhir.R
-import com.nandaadisaputra.projectakhir.adapter.TabAdapter
 
 class AdminProductFragment : Fragment() {
 
@@ -29,15 +28,5 @@ class AdminProductFragment : Fragment() {
         }
     }
 
-
-    override fun onViewCreated(@NonNull view: View, @Nullable savedInstanceState: Bundle?) {
-        super.onViewCreated(view, savedInstanceState)
-        val tabLayout: TabLayout = view.findViewById(R.id.admin_tab)
-        val viewPager: ViewPager = view.findViewById(R.id.admin_viewpager)
-        viewPager.offscreenPageLimit = 3
-        viewPager.adapter = TabAdapter(childFragmentManager)
-        tabLayout.setupWithViewPager(viewPager)
-
-    }
 }
 

@@ -18,6 +18,7 @@ import com.nandaadisaputra.projectakhir.sharepref.SharedPrefManager
 import com.nandaadisaputra.projectakhir.ui.activity.login.LoginActivity
 import com.nandaadisaputra.projectakhir.ui.fragment.AboutFragment
 import com.nandaadisaputra.projectakhir.ui.fragment.AdminProductFragment
+import com.nandaadisaputra.projectakhir.ui.fragment.MenuFragment
 import com.nandaadisaputra.projectakhir.ui.fragment.ProfileFragment
 import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.app_bar_main.*
@@ -26,13 +27,13 @@ import org.jetbrains.anko.*
 class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelectedListener {
 
     var content: FrameLayout? = null
-    var sharedPrefManager: SharedPrefManager? = null
+    private var sharedPrefManager: SharedPrefManager? = null
 
     private val mOnNavigationItemSelectedListener =
             BottomNavigationView.OnNavigationItemSelectedListener { item ->
                 when (item.itemId) {
                     R.id.menu_admin -> {
-                        val fragment = AdminProductFragment.newInstance()
+                        val fragment = MenuFragment.newInstance()
                         addFragment(fragment)
                         return@OnNavigationItemSelectedListener true
                     }
@@ -83,7 +84,7 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
     private fun initView() {
 
         navigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener)
-        val fragment = AdminProductFragment.newInstance()
+        val fragment = MenuFragment.newInstance()
         addFragment(fragment)
 
     }

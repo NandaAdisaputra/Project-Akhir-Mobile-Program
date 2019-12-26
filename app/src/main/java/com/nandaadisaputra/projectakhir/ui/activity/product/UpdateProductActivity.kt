@@ -1,6 +1,5 @@
 package com.nandaadisaputra.projectakhir.ui.activity.product
 
-import android.content.Intent
 import android.os.Bundle
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
@@ -10,6 +9,7 @@ import com.nandaadisaputra.projectakhir.ui.activity.MainActivity
 import kotlinx.android.synthetic.main.activity_update_product.*
 import okhttp3.ResponseBody
 import org.jetbrains.anko.sdk27.coroutines.onClick
+import org.jetbrains.anko.startActivity
 import org.jetbrains.anko.toast
 import retrofit2.Call
 import retrofit2.Callback
@@ -60,7 +60,7 @@ class UpdateProductActivity : AppCompatActivity() {
                         if (response.isSuccessful) {
                             toast("Success Updated")
                             finishAffinity()
-                            startActivity(Intent(applicationContext, MainActivity::class.java))
+                            startActivity< MainActivity>()
 
                         }
                     }

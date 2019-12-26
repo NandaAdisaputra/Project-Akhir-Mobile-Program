@@ -54,4 +54,20 @@
     <string name="yes">Yes</string>
     <string name="take_photo">Take Photo</string>
     <string name="create_product">Create Product</string>
+    <string name="nomor_hp">Nomor HP</string>
+    <string name="_082141730797">082141730797</string>
+    <string name="detail">Detail</string>
+    <string name="share">Share</string>
+    <string name="detail_mahasiswa">Detail Mahasiswa</string>
+    <string name="nama">Nama</string>
+    <string name="sekolah">Sekolah</string>
+    <string name="sma_negeri_10_semar_ang">SMA NEGERI 10 SEMAR ANG</string>
+    <string name="tahun_lulus">Tahun Lulus</string>
+    <string name="_2014">2014</string>
+    <string name="jurusan">Jurusan</string>
+    <string name="ipa">IPA</string>
+    <string name="universitas">Universitas</string>
+    <string name="universitas_semarang">Universitas Semarang</string>
+    <string name="jurusan_kuliah">Jurusan Kuliah</string>
+    <string name="teknik_informatika">Teknik Informatika</string>
 </resources>

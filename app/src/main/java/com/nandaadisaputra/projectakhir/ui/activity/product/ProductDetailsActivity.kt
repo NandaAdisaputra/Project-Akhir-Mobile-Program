@@ -3,14 +3,12 @@ package com.nandaadisaputra.projectakhir.ui.activity.product
 import android.content.Intent
 import android.media.MediaPlayer
 import android.os.Bundle
-import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.bumptech.glide.Glide
 import com.google.android.material.snackbar.Snackbar
 import com.nandaadisaputra.projectakhir.R
 import com.nandaadisaputra.projectakhir.network.ApiConfig
 import com.nandaadisaputra.projectakhir.ui.activity.MainActivity
-import com.nandaadisaputra.projectakhir.ui.fragment.AdminProductFragment
 import kotlinx.android.synthetic.main.activity_detail_product.*
 import kotlinx.android.synthetic.main.content_detail_product.*
 import okhttp3.ResponseBody
@@ -30,7 +28,7 @@ class ProductDetailsActivity : AppCompatActivity() {
     private var priceProduct: String? = null
     private var stockProduct: String? = null
 
-    var myMediaPlayer: MediaPlayer? = null
+    private var myMediaPlayer: MediaPlayer? = null
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -80,7 +78,6 @@ class ProductDetailsActivity : AppCompatActivity() {
                 }
             })
         }
-
         btn_edit.setOnClickListener {
             val intent = Intent(this, UpdateProductActivity::class.java)
             intent.putExtra("ID_PRODUCT", idProduct)
