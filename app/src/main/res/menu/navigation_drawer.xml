@@ -4,27 +4,15 @@
         <item android:title="@string/menu">
             <menu>
                 <item
-                    android:id="@+id/nav_add"
-                    android:icon="@drawable/ic_note"
-                    android:title="@string/buyer_data" />
-                <item
-                    android:id="@+id/menu_about"
-                    android:icon="@drawable/ic_info"
-                    android:title="@string/about" />
-                <item
                     android:id="@+id/menu_exit"
                     android:icon="@drawable/ic_exit"
                     android:title="@string/exit" />
 
                 <item
-                    android:id="@+id/menu_profile"
-                    android:icon="@drawable/ic_people"
-                    android:title="@string/profile" />
+                    android:id="@+id/menu_user"
+                    android:icon="@drawable/ic_exit"
+                    android:title="@string/user" />
 
-                <item
-                    android:id="@+id/menu_admin"
-                    android:icon="@drawable/ic_people"
-                    android:title="@string/admin" />
             </menu>
         </item>
     </group>

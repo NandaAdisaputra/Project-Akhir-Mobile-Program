@@ -4,24 +4,16 @@
     android:id="@+id/menu"
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
-    android:background="@drawable/bg_langit"
+    android:background="@drawable/bg_cloud"
     android:orientation="vertical"
     tools:context=".ui.fragment.MenuFragment">
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_below="@+id/tv_name"
+        android:layout_height="wrap_content"
         android:layout_margin="10dp"
         android:orientation="vertical"
         android:weightSum="100">
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_weight="40"
-            android:orientation="vertical"
-            android:weightSum="55">
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -61,19 +53,8 @@
                 android:weightSum="100">
 
                 <ImageView
-                    android:id="@+id/imageView4"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="50"
-                    android:contentDescription="@string/app_name"
-                    android:onClick="goToEditActivity"
-                    android:padding="20dp"
-                    android:src="@drawable/menu_edit"
-                    tools:ignore="OnClick" />
-
-                <ImageView
                     android:id="@+id/imageView5"
-                    android:layout_width="wrap_content"
+                    android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="50"
                     android:contentDescription="@string/app_name"
@@ -84,5 +65,4 @@
 
             </LinearLayout>
         </LinearLayout>
-    </LinearLayout>
 </RelativeLayout>

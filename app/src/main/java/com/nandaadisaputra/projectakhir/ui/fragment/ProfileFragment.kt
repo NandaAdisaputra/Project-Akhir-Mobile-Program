@@ -54,7 +54,7 @@ class ProfileFragment : Fragment(), View.OnClickListener {
                 val sharingIntent = Intent(Intent.ACTION_VIEW)
                 sharingIntent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
                 sharingIntent.data = Uri.parse("https://web.whatsapp.com/")
-                context!!.startActivity(sharingIntent)
+                context?.startActivity(sharingIntent)
             }
         }
     }

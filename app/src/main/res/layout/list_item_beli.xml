@@ -17,24 +17,24 @@
 
         <ImageView
             android:id="@+id/iv_product"
-            android:layout_width="@dimen/_150sdp"
             android:contentDescription="@string/image"
+            android:layout_width="@dimen/_150sdp"
             android:layout_height="@dimen/_150sdp" />
 
         <TextView
             android:id="@+id/tv_name"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/shoes"
+            android:text="Tas Hitam"
             android:textColor="@android:color/black"
-            android:textSize="@dimen/_20ssp" />
+            android:textSize="20sp" />
 
         <TextView
             android:id="@+id/tv_prices"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/rp_150000"
-            android:textSize="@dimen/_18ssp" />
+            android:text="Rp. 150000"
+            android:textSize="18sp" />
     </LinearLayout>
 
 

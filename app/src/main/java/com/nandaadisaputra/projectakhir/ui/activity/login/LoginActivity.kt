@@ -37,7 +37,7 @@ class LoginActivity : AppCompatActivity(), View.OnClickListener {
     private var db: SQLiteDatabase? = null
     private var openHelper: SQLiteOpenHelper? = null
     private var cursor: Cursor? = null
-    var sharedPrefManager: SharedPrefManager? = null
+    private var sharedPrefManager: SharedPrefManager? = null
     @SuppressLint("all")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

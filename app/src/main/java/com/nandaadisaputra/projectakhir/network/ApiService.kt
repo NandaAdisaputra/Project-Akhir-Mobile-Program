@@ -3,10 +3,7 @@ package com.nandaadisaputra.projectakhir.network
 import com.nandaadisaputra.projectakhir.model.ProductModel
 import okhttp3.ResponseBody
 import retrofit2.Call
-import retrofit2.http.Field
-import retrofit2.http.FormUrlEncoded
-import retrofit2.http.GET
-import retrofit2.http.POST
+import retrofit2.http.*
 import java.util.ArrayList
 
 interface ApiService {
@@ -27,9 +24,9 @@ interface ApiService {
     @POST("api/barang/simpan")
     fun addData(
             @Field("nama_barang") nama_barang: String,
-            @Field("image_barang") image_barang: String,
             @Field("deskripsi_barang") deskripsi_barang: String,
-            @Field("harga_barang") harga_barang: String
+            @Field("harga_barang") harga_barang: String,
+            @Field("stok_barang") stok_barang: String
     ): Call<ResponseBody>
 
     @FormUrlEncoded
@@ -37,7 +34,7 @@ interface ApiService {
     fun deleteData(@Field("id_barang") id: String): Call<ResponseBody>
 
     @FormUrlEncoded
-    @POST("api/barang/edit")
+    @POST("api/barang/beli")
      fun buyData(
         @Field("id_barang") id_barang: String
     ): Call<ResponseBody>
@@ -52,6 +49,4 @@ interface ApiService {
         @Field("harga_barang") harga_barang: String,
         @Field("stok_barang") stok_barang: String
     ): Call<ResponseBody>
-
-
 }

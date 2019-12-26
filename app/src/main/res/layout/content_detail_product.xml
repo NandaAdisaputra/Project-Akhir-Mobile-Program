@@ -12,76 +12,76 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_margin="10dp"
+        android:layout_margin="@dimen/_10sdp"
         android:orientation="vertical">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"
-            android:layout_marginBottom="8dp">
+            android:layout_marginBottom="@dimen/_8sdp">
 
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:fontFamily="sans-serif-black"
-                android:text="@string/harga_barang"
+                android:text="@string/product_prices"
                 android:textColor="@android:color/black"
-                android:textSize="18sp"
+                android:textSize="@dimen/_18ssp"
                 android:textStyle="bold" />
             <TextView
                 android:id="@+id/tv_price_product"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="@string/harga_barang"
-                android:padding="10dp"
-                android:textSize="14sp"/>
+                android:text="@string/product_prices"
+                android:padding="@dimen/_10sdp"
+                android:textSize="@dimen/_14ssp"/>
 
         </LinearLayout>
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"
-            android:layout_marginBottom="8dp">
+            android:layout_marginBottom="@dimen/_8sdp">
 
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:fontFamily="sans-serif-black"
-                android:text="@string/stok_barang"
+                android:text="@string/product_stock"
                 android:textColor="@android:color/black"
-                android:textSize="18sp"
+                android:textSize="@dimen/_18ssp"
                 android:textStyle="bold" />
             <TextView
                 android:id="@+id/tv_stock_product"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="@string/stok_barang"
-                android:padding="10dp"
-                android:textSize="14sp"/>
+                android:text="@string/product_stock"
+                android:padding="@dimen/_10sdp"
+                android:textSize="@dimen/_14ssp"/>
 
         </LinearLayout>
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"
-            android:layout_marginBottom="8dp">
+            android:layout_marginBottom="@dimen/_8sdp">
 
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:fontFamily="sans-serif-black"
-                android:text="@string/deskripsi_barang"
+                android:text="@string/product_description"
                 android:textColor="@android:color/black"
-                android:textSize="18sp"
+                android:textSize="@dimen/_18ssp"
                 android:textStyle="bold" />
             <TextView
                 android:id="@+id/tv_description_product"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="@string/deskripsi_barang"
-                android:padding="10dp"
-                android:textSize="14sp"/>
+                android:text="@string/product_description"
+                android:padding="@dimen/_10sdp"
+                android:textSize="@dimen/_14ssp"/>
 
         </LinearLayout>
 
@@ -90,10 +90,10 @@
             android:id="@+id/btn_edit"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/edit_produk"
+            android:text="@string/edit_product"
             android:background="@android:color/holo_blue_light"
             android:textColor="@android:color/white"
-            android:textSize="20sp"
+            android:textSize="@dimen/_20ssp"
             android:textStyle="bold"/>
 
 

@@ -4,11 +4,11 @@
     xmlns:tools="http://schemas.android.com/tools"
     style="@style/loginCard"
     android:layout_gravity="center"
-    android:layout_marginTop="@dimen/loginViewsMargin"
-    android:layout_marginBottom="@dimen/loginViewsMargin"
+    android:layout_marginTop="@dimen/_16sdp"
+    android:layout_marginBottom="@dimen/_16sdp"
     android:background="@color/whiteCardColor"
-    android:elevation="5dp"
-    app:cardCornerRadius="@dimen/loginCardRadius"
+    android:elevation="@dimen/_5sdp"
+    app:cardCornerRadius="@dimen/_16sdp"
     tools:context=".ui.activity.login.LoginActivity"
     tools:targetApi="lollipop">
 
@@ -16,11 +16,11 @@
         style="@style/linearParent"
         android:id="@+id/anim"
         android:layout_gravity="center"
-        android:padding="@dimen/loginViewsMargin">
+        android:padding="@dimen/_16sdp">
 
         <ImageView
-            android:layout_width="150dp"
-            android:layout_height="150dp"
+            android:layout_width="@dimen/_150sdp"
+            android:layout_height="@dimen/_150sdp"
             android:src="@drawable/userimage"
             android:contentDescription="@string/image"
             android:layout_gravity="center"/>
@@ -28,7 +28,7 @@
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/textInputEmail"
             style="@style/parent"
-            android:layout_marginTop="@dimen/loginViewsMargin">
+            android:layout_marginTop="@dimen/_16sdp">
 
             <EditText
                 android:id="@+id/edt_login"
@@ -44,14 +44,14 @@
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/textInputPassword"
             style="@style/parent"
-            android:layout_marginTop="@dimen/loginViewsMargin">
+            android:layout_marginTop="@dimen/_16sdp">
 
             <EditText
                 android:id="@+id/edt_loginPassword"
                 style="@style/modifiedEditText"
                 android:drawableStart="@drawable/ic_lock"
                 android:hint="@string/password"
-                android:textSize="18sp"
+                android:textSize="@dimen/_18ssp"
                 android:inputType="textPassword"
                 android:maxLines="1"
                 tools:ignore="Autofill" />
@@ -68,7 +68,7 @@
             style="@style/loginButton"
             android:onClick="onClick"
             android:layout_gravity="center_horizontal"
-            android:layout_marginTop="@dimen/loginViewsMargin"
+            android:layout_marginTop="@dimen/_16sdp"
             android:text="@string/login" />
 
         <LinearLayout
@@ -80,21 +80,21 @@
             <TextView
                 android:id="@+id/forgot_password"
                 style="@style/parent"
-                android:layout_marginTop="@dimen/loginViewsMargin"
+                android:layout_marginTop="@dimen/_16sdp"
                 android:onClick="onClick"
                 android:text="@string/forgot_password"
                 android:textAlignment="center"
-                android:textColor="#FC3C7D"
+                android:textColor="@color/primaryTextColor"
                 android:textStyle="bold" />
             <TextView
                 android:id="@+id/tv_register"
                 style="@style/parent"
-                android:layout_marginStart="16dp"
-                android:layout_marginTop="@dimen/loginViewsMargin"
+                android:layout_marginStart="@dimen/_16sdp"
+                android:layout_marginTop="@dimen/_16sdp"
                 android:onClick="onClick"
                 android:text="@string/sign_up"
                 android:textAlignment="center"
-                android:textColor="#FC3C7D"
+                android:textColor="@color/primaryTextColor"
                 android:textStyle="bold" />
         </LinearLayout>
         <com.google.android.gms.common.SignInButton
@@ -102,6 +102,6 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:padding="8dp"/>
+            android:padding="@dimen/_8sdp"/>
     </LinearLayout>
 </androidx.cardview.widget.CardView>

@@ -16,10 +16,9 @@ import com.google.android.material.navigation.NavigationView
 import com.nandaadisaputra.projectakhir.R
 import com.nandaadisaputra.projectakhir.sharepref.SharedPrefManager
 import com.nandaadisaputra.projectakhir.ui.activity.login.LoginActivity
-import com.nandaadisaputra.projectakhir.ui.fragment.AboutFragment
-import com.nandaadisaputra.projectakhir.ui.fragment.AdminProductFragment
 import com.nandaadisaputra.projectakhir.ui.fragment.MenuFragment
 import com.nandaadisaputra.projectakhir.ui.fragment.ProfileFragment
+import com.nandaadisaputra.projectakhir.ui.fragment.user.ShowUserFragment
 import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.app_bar_main.*
 import org.jetbrains.anko.*
@@ -37,8 +36,8 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
                         addFragment(fragment)
                         return@OnNavigationItemSelectedListener true
                     }
-                    R.id.menu_about -> {
-                        val fragment = AboutFragment.newInstance()
+                    R.id.menu_user-> {
+                        val fragment = ShowUserFragment.newInstance()
                         addFragment(fragment)
                         return@OnNavigationItemSelectedListener true
                     }

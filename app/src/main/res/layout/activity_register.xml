@@ -4,27 +4,27 @@
     xmlns:tools="http://schemas.android.com/tools"
     style="@style/loginCard"
     android:layout_gravity="center"
-    android:elevation="5dp"
-    android:layout_marginTop="@dimen/loginViewsMargin"
-    android:layout_marginBottom="@dimen/loginViewsMargin"
+    android:elevation="@dimen/_5sdp"
+    android:layout_marginTop="@dimen/_16sdp"
+    android:layout_marginBottom="@dimen/_16sdp"
     android:background="@color/whiteCardColor"
-    app:cardCornerRadius="@dimen/loginCardRadius"
+    app:cardCornerRadius="@dimen/_16sdp"
     tools:targetApi="lollipop">
 
     <LinearLayout
         style="@style/linearParent"
         android:layout_gravity="center"
-        android:padding="@dimen/loginViewsMargin">
+        android:padding="@dimen/_16sdp">
         <ImageView
-            android:layout_width="150dp"
-            android:layout_height="150dp"
+            android:layout_width="@dimen/_150sdp"
+            android:layout_height="@dimen/_150sdp"
             android:src="@drawable/userimage"
             android:contentDescription="@string/image"
             android:layout_gravity="center"/>
 
         <com.google.android.material.textfield.TextInputLayout
             style="@style/parent"
-            android:layout_marginTop="@dimen/signup_text_margin_top">
+            android:layout_marginTop="@dimen/_8sdp">
 
             <EditText
                 android:id="@+id/edt_name"
@@ -38,7 +38,7 @@
 
         <com.google.android.material.textfield.TextInputLayout
             style="@style/parent"
-            android:layout_marginTop="@dimen/signup_text_margin_top">
+            android:layout_marginTop="@dimen/_8sdp">
 
             <EditText
                 android:id="@+id/edt_phone"
@@ -52,7 +52,7 @@
 
         <com.google.android.material.textfield.TextInputLayout
             style="@style/parent"
-            android:layout_marginTop="@dimen/signup_text_margin_top">
+            android:layout_marginTop="@dimen/_8sdp">
 
             <EditText
                 android:id="@+id/edt_email"
@@ -66,7 +66,7 @@
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="10dp">
+            android:layout_marginTop="@dimen/_10sdp">
 
             <TextView
                 android:id="@+id/tv_chooseGender"
@@ -75,16 +75,16 @@
                 android:layout_alignParentEnd="true"
                 android:layout_centerVertical="true"
                 android:text="@string/pilih"
-                android:textColor="#2196F3" />
+                android:textColor="@color/colorAccent" />
 
             <EditText
                 android:id="@+id/edt_gender"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginEnd="10dp"
+                android:layout_marginEnd="@dimen/_10sdp"
                 android:layout_toStartOf="@id/tv_chooseGender"
                 android:enabled="false"
-                android:textSize="14sp"
+                android:textSize="@dimen/_14ssp"
                 android:drawableStart="@drawable/ic_people"
                 android:hint="@string/jenis_kelamin"
                 tools:ignore="Autofill,TextFields" />
@@ -93,7 +93,7 @@
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="10dp">
+            android:layout_marginTop="@dimen/_10sdp">
 
             <TextView
                 android:id="@+id/tv_selectEducation"
@@ -103,16 +103,16 @@
                 android:layout_centerVertical="true"
                 android:layout_marginEnd="0dp"
                 android:text="@string/pilih"
-                android:textColor="#2196F3" />
+                android:textColor="@color/colorAccent" />
 
             <EditText
                 android:id="@+id/edt_education"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginEnd="10dp"
+                android:layout_marginEnd="@dimen/_10sdp"
                 android:layout_toStartOf="@+id/tv_selectEducation"
                 android:enabled="false"
-                android:textSize="14sp"
+                android:textSize="@dimen/_14ssp"
                 android:drawableStart="@drawable/ic_school"
                 android:hint="@string/pendidikan"
                 tools:ignore="Autofill,TextFields" />
@@ -120,7 +120,7 @@
 
         <com.google.android.material.textfield.TextInputLayout
             style="@style/parent"
-            android:layout_marginTop="@dimen/signup_text_margin_top">
+            android:layout_marginTop="@dimen/_8sdp">
 
             <EditText
                 android:id="@+id/edt_password"
@@ -146,23 +146,23 @@
             android:id="@+id/tv_loginRegister"
             android:layout_height="wrap_content"
             android:layout_width="match_parent"
-            android:layout_marginTop="@dimen/loginViewsMargin"
+            android:layout_marginTop="@dimen/_16sdp"
             android:text="@string/login"
             android:onClick="onClick"
             android:layout_weight="2"
             android:textAlignment="center"
-            android:textColor="#FC3C7D"
+            android:textColor="@color/primaryTextColor"
             android:textStyle="bold" />
         <TextView
             android:id="@+id/tv_guestRegister"
             android:layout_height="wrap_content"
             android:layout_width="match_parent"
             android:layout_weight="2"
-            android:layout_marginTop="@dimen/loginViewsMargin"
+            android:layout_marginTop="@dimen/_16sdp"
             android:text="@string/login_as_guest"
             android:onClick="onClick"
             android:textAlignment="center"
-            android:textColor="#FC3C7D"
+            android:textColor="@color/primaryTextColor"
             android:textStyle="bold" />
     </LinearLayout>
 

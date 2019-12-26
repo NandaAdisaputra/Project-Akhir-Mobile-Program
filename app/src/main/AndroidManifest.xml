@@ -18,7 +18,7 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         tools:ignore="AllowBackup,GoogleAppIndexingWarning">
-        <activity android:name=".ui.activity.product.ShowActivity"></activity>
+        <activity android:name=".ui.activity.product.ShowActivity" />
         <activity android:name=".ui.activity.product.DeleteActivity" />
         <activity android:name=".ui.activity.DetailProfileActivity" />
         <activity android:name=".ui.activity.product.UpdateProductActivity" />
