@@ -114,6 +114,7 @@
         android:layout_height="wrap_content"
         android:textColor="@android:color/white"
         android:textSize="@dimen/_14sdp"
+        android:onClick="onClick"
         android:background="@drawable/login_button"
         android:text="@string/create_product" />
 

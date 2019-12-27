@@ -54,7 +54,7 @@
             android:textSize="@dimen/_12ssp"
             tools:ignore="Autofill,TextFields" />
 
-        <ImageView
+        <ImageButton
             android:id="@+id/icon_minus"
             android:layout_width="@dimen/_24sdp"
             android:layout_height="@dimen/_24sdp"
@@ -63,7 +63,7 @@
             android:contentDescription="@string/image"
             android:src="@drawable/ic_minus" />
 
-        <ImageView
+        <ImageButton
             android:id="@+id/icon_plus"
             android:layout_width="@dimen/_24sdp"
             android:layout_height="@dimen/_24sdp"

@@ -17,7 +17,6 @@ class DatabaseHelper(context: Context?) : SQLiteOpenHelper(context, DATABASE_NAM
     companion object {
         const val DATABASE_NAME = "thesis-login-register"
         const val TABLE_NAME = "user"
-        const val COL_1 = "ID"
         const val COL_2 = "Name"
         const val COL_3 = "Phone"
         const val COL_4 = "Email"

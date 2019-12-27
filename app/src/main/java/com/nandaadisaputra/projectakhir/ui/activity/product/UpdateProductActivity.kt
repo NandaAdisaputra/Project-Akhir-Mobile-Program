@@ -1,7 +1,6 @@
 package com.nandaadisaputra.projectakhir.ui.activity.product
 
 import android.os.Bundle
-import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.nandaadisaputra.projectakhir.R
 import com.nandaadisaputra.projectakhir.network.ApiConfig
@@ -16,7 +15,6 @@ import retrofit2.Callback
 import retrofit2.Response
 
 class UpdateProductActivity : AppCompatActivity() {
-
     private var idProduct: String? = null
     private var nameProduct: String? = null
     private var imageProduct: String? = null
@@ -40,11 +38,11 @@ class UpdateProductActivity : AppCompatActivity() {
         edt_stock_product_update.setText(stockProduct)
 
         btn_update_product.onClick{
-            updateBarang()
+            updateProduct()
         }
     }
 
-    private fun updateBarang() {
+    private fun updateProduct() {
         val apiService = ApiConfig.getApiService()
         apiService.updateData(idProduct!!,
                 edt_name_product_update.text.toString().trim(),
@@ -66,10 +64,7 @@ class UpdateProductActivity : AppCompatActivity() {
                     }
 
                     override fun onFailure(call: Call<ResponseBody>, t: Throwable) {
-                        Toast.makeText(
-                                this@UpdateProductActivity, "" + t.message,
-                                Toast.LENGTH_SHORT
-                        ).show()
+                        toast("There is no internet network")
                     }
                 })
     }

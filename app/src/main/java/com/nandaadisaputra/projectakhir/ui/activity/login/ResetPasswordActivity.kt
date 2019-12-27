@@ -12,6 +12,7 @@ import androidx.appcompat.app.AppCompatActivity
 import com.google.firebase.auth.FirebaseAuth
 import com.nandaadisaputra.projectakhir.R
 import org.jetbrains.anko.sdk27.coroutines.onClick
+import org.jetbrains.anko.startActivity
 import org.jetbrains.anko.toast
 
 class ResetPasswordActivity : AppCompatActivity() {
@@ -51,8 +52,7 @@ class ResetPasswordActivity : AppCompatActivity() {
         }
     }
     private fun updateUI() {
-        val intent = Intent(this@ResetPasswordActivity, LoginActivity::class.java)
+        startActivity<LoginActivity>()
         intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP)
-        startActivity(intent)
     }
 }

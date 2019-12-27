@@ -16,9 +16,10 @@ import com.google.android.material.navigation.NavigationView
 import com.nandaadisaputra.projectakhir.R
 import com.nandaadisaputra.projectakhir.sharepref.SharedPrefManager
 import com.nandaadisaputra.projectakhir.ui.activity.login.LoginActivity
+import com.nandaadisaputra.projectakhir.ui.activity.product.ShowUserActivity
 import com.nandaadisaputra.projectakhir.ui.fragment.MenuFragment
 import com.nandaadisaputra.projectakhir.ui.fragment.ProfileFragment
-import com.nandaadisaputra.projectakhir.ui.fragment.user.ShowUserFragment
+import com.nandaadisaputra.projectakhir.ui.fragment.user.MenuUserFragment
 import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.app_bar_main.*
 import org.jetbrains.anko.*
@@ -31,13 +32,13 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
     private val mOnNavigationItemSelectedListener =
             BottomNavigationView.OnNavigationItemSelectedListener { item ->
                 when (item.itemId) {
-                    R.id.menu_admin -> {
-                        val fragment = MenuFragment.newInstance()
+                    R.id.menu_user -> {
+                        val fragment = MenuUserFragment.newInstance()
                         addFragment(fragment)
                         return@OnNavigationItemSelectedListener true
                     }
-                    R.id.menu_user-> {
-                        val fragment = ShowUserFragment.newInstance()
+                    R.id.menu_admin -> {
+                        val fragment = MenuFragment.newInstance()
                         addFragment(fragment)
                         return@OnNavigationItemSelectedListener true
                     }
@@ -83,7 +84,7 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
     private fun initView() {
 
         navigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener)
-        val fragment = MenuFragment.newInstance()
+        val fragment = MenuUserFragment.newInstance()
         addFragment(fragment)
 
     }
@@ -130,6 +131,9 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
                         }
                     }
                 }.show()
+            }
+            R.id.menu_user -> {
+                startActivity(intentFor<ShowUserActivity>())
             }
         }
 

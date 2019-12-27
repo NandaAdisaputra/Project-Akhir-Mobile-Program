@@ -31,8 +31,8 @@ import org.jetbrains.anko.sdk27.coroutines.onClick
 
 class LoginActivity : AppCompatActivity(), View.OnClickListener {
     private val rcSignIn: Int = 1
-    lateinit var mGoogleSignInClient: GoogleSignInClient
-    lateinit var mGoogleSignInOptions: GoogleSignInOptions
+    private lateinit var mGoogleSignInClient: GoogleSignInClient
+    private lateinit var mGoogleSignInOptions: GoogleSignInOptions
     private lateinit var firebaseAuth: FirebaseAuth
     private var db: SQLiteDatabase? = null
     private var openHelper: SQLiteOpenHelper? = null

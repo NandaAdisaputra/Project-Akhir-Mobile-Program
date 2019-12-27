@@ -12,25 +12,35 @@ import android.widget.Button
 
 import com.nandaadisaputra.projectakhir.R
 import com.nandaadisaputra.projectakhir.ui.activity.DetailProfileActivity
+import kotlinx.android.synthetic.main.fragment_menu.view.*
+import kotlinx.android.synthetic.main.fragment_profile.view.*
 import org.jetbrains.anko.find
+import org.jetbrains.anko.sdk27.coroutines.onClick
+import org.jetbrains.anko.support.v4.startActivity
 import org.jetbrains.anko.support.v4.toast
 
 /**
  * A simple [Fragment] subclass.
  */
-class ProfileFragment : Fragment(), View.OnClickListener {
+class ProfileFragment : Fragment(){
+    lateinit var contentView: View
 
     override fun onCreateView(
             inflater: LayoutInflater,
             container: ViewGroup?,
             savedInstanceState: Bundle?
     ): View? {
-        val view: View = inflater.inflate(R.layout.fragment_profile, container, false)
-        val btn: Button = view.find(R.id.detail)
-        val btn2: Button = view.find(R.id.share)
-        btn.setOnClickListener(this)
-        btn2.setOnClickListener(this)
-        return view
+        contentView = inflater.inflate(R.layout.fragment_profile, container, false)
+        contentView.detail.onClick {
+            startActivity<DetailProfileActivity>()
+        }
+        contentView.share.onClick {
+            val sharingIntent = Intent(Intent.ACTION_VIEW)
+            sharingIntent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
+            sharingIntent.data = Uri.parse("https://web.whatsapp.com/")
+            context?.startActivity(sharingIntent)
+        }
+        return contentView
     }
 
     companion object {
@@ -39,23 +49,6 @@ class ProfileFragment : Fragment(), View.OnClickListener {
             val args = Bundle()
             fragment.arguments = args
             return fragment
-        }
-    }
-
-    override fun onClick(v: View?) {
-        when (v?.id) {
-            R.id.detail -> {
-                toast("Masuk Ke Detail Activity")
-                val intent = Intent(this@ProfileFragment.context, DetailProfileActivity::class.java)
-                startActivity(intent)
-            }
-            R.id.share -> {
-                toast("Masuk Ke akun Whatshapp")
-                val sharingIntent = Intent(Intent.ACTION_VIEW)
-                sharingIntent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
-                sharingIntent.data = Uri.parse("https://web.whatsapp.com/")
-                context?.startActivity(sharingIntent)
-            }
         }
     }
 }

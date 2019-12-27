@@ -29,6 +29,7 @@
             android:label="title_activity_reset_password" />
         <activity android:name=".ui.activity.MainActivity" />
         <activity android:name=".ui.activity.login.LoginActivity" />
+        <activity android:name=".ui.activity.product.ShowUserActivity" />
         <activity android:name=".ui.activity.SplashScreenActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

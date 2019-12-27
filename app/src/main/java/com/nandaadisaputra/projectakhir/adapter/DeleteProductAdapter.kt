@@ -16,7 +16,6 @@ import com.nandaadisaputra.projectakhir.R
 import com.nandaadisaputra.projectakhir.model.ProductModel
 import com.nandaadisaputra.projectakhir.network.ApiConfig
 import com.nandaadisaputra.projectakhir.ui.activity.MainActivity
-import com.nandaadisaputra.projectakhir.ui.fragment.AdminProductFragment
 import okhttp3.ResponseBody
 import org.jetbrains.anko.sdk27.coroutines.onClick
 import org.json.JSONException
@@ -29,10 +28,10 @@ import java.util.*
 
 class DeleteProductAdapter(private val context: FragmentActivity?,
                            private val productModel: ArrayList<ProductModel>?
-)
-    : RecyclerView.Adapter<DeleteProductAdapter.ViewHolder>()
+) : RecyclerView.Adapter<DeleteProductAdapter.ViewHolder>() {
 
-{
+    lateinit var itemView: View
+
     private var id: String? = null
     inner class ViewHolder(view: View) :RecyclerView.ViewHolder(view) {
         val ivProduct:ImageView = view.findViewById(R.id.iv_product)

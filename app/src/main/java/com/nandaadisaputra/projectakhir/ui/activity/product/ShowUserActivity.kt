@@ -4,28 +4,28 @@ import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.GridLayoutManager
 import com.nandaadisaputra.projectakhir.R
-import com.nandaadisaputra.projectakhir.adapter.DeleteProductAdapter
+import com.nandaadisaputra.projectakhir.adapter.ShowProductUserAdapter
 import com.nandaadisaputra.projectakhir.model.ProductModel
 import com.nandaadisaputra.projectakhir.network.ApiConfig
-import kotlinx.android.synthetic.main.activity_delete.*
+import kotlinx.android.synthetic.main.activity_show_user.*
 import org.jetbrains.anko.toast
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 import java.util.*
 
-class DeleteActivity : AppCompatActivity() {
-    private var deleteProductAdapter: DeleteProductAdapter? = null
-    private var productModel: ArrayList<ProductModel>? = null
+class ShowUserActivity : AppCompatActivity() {
+    var productModels: ArrayList<ProductModel>? = null
+    var showProductUserAdapter: ShowProductUserAdapter? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_delete)
+        setContentView(R.layout.activity_show_user)
+        productModels = ArrayList()
         getData()
     }
-    private fun getData() {
-        productModel = ArrayList()
 
+    private fun getData() {
         val apiService = ApiConfig.getApiService()
         apiService.getData().enqueue(object : Callback<ArrayList<ProductModel>> {
             override fun onResponse(
@@ -33,18 +33,19 @@ class DeleteActivity : AppCompatActivity() {
                     response: Response<ArrayList<ProductModel>>
             ) {
                 if (response.isSuccessful) {
-                    productModel?.clear()
-                    productModel = response.body()
-                    deleteProductAdapter = DeleteProductAdapter(this@DeleteActivity, productModel)
-                    rvItem?.layoutManager = GridLayoutManager(this@DeleteActivity, 2)
-                    rvItem?.adapter = deleteProductAdapter
-                    deleteProductAdapter?.notifyDataSetChanged()
+                    productModels = response.body()
+                    showProductUserAdapter = ShowProductUserAdapter(this@ShowUserActivity, productModels)
+                    rvProductUser.adapter = showProductUserAdapter
+                    rvProductUser.layoutManager = GridLayoutManager(this@ShowUserActivity, 2)
+                    showProductUserAdapter?.notifyDataSetChanged()
                 }
             }
 
             override fun onFailure(call: Call<ArrayList<ProductModel>>, t: Throwable) {
                 toast("There is no internet network")
+
             }
         })
+
     }
 }
